@@ -1,8 +1,13 @@
+import { mijnui } from "@mijn-ui/react-theme";
+
+import animationPlugin from "tailwindcss-animate";
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
-	theme: {
-		extend: {}
-	},
-	plugins: []
+export default {
+	content: [
+		"./src/**/*.{js,ts,jsx,tsx,mdx}",
+		"./node_modules/@mijn-ui/react-theme/dist/**/*.js"
+	],
+	darkMode: "class",
+	plugins: [animationPlugin, mijnui({})]
 };

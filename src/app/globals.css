@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background font-sans text-foreground antialiased;
-  }
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background font-sans text-foreground antialiased;
+	}
+}
+
+:root {
+	--mijnui-primary: 217.2 91.2% 59.8%;
 }

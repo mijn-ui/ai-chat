@@ -15,8 +15,17 @@ export default {
 	trailingComma: "none",
 	useTabs: true,
 	endOfLine: "auto",
-	plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
-	importOrder: ["^react$", "^next(/.*)?$", "next-themes", "@/*", "<THIRD_PARTY_MODULES>"],
-	importOrderSeparation: true,
+	plugins: [
+		"@trivago/prettier-plugin-sort-imports",
+		"prettier-plugin-tailwindcss"
+	],
+	importOrder: [
+		"^react$",
+		"^next(/.*)?$",
+		"next-themes",
+		"@/*",
+		"<THIRD_PARTY_MODULES>"
+	],
+	importOrderSeparation: false,
 	importOrderSortSpecifiers: true
 };

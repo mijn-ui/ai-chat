@@ -18,9 +18,7 @@ export default function SignInViewPage() {
 					alt="PicoSBS"
 					className="w-7"
 				/>
-				<p className="text-sm font-extrabold tracking-wide text-primary">
-					PicoSBS
-				</p>
+				<p className="text-sm font-extrabold text-primary">PicoSBS</p>
 			</header>
 			<main className="flex w-full max-w-md flex-col gap-3 rounded-xl border bg-card p-4 shadow-sm">
 				<h3 className="text-lg font-semibold">Create An Account</h3>

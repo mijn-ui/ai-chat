@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import SignInViewPage from "@/features/auth/signin-view/sigin-view";
 
 export const metadata: Metadata = {
-	title: "Authentication | Sign In",
+	title: "Picosbs | Sign In",
 	description: "Sign In page for authentication."
 };
 

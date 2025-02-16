@@ -23,6 +23,7 @@ export default {
 		"^react$",
 		"^next(/.*)?$",
 		"next-themes",
+		"@mijn-ui/*",
 		"@/*",
 		"<THIRD_PARTY_MODULES>"
 	],

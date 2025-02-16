@@ -2,6 +2,8 @@
 
 import { useTransition } from "react";
 import { useSearchParams } from "next/navigation";
+import { Button } from "@mijn-ui/react-button";
+import { Input } from "@mijn-ui/react-input";
 import {
 	Form,
 	FormControl,
@@ -11,8 +13,6 @@ import {
 	FormMessage
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@mijn-ui/react-button";
-import { Input } from "@mijn-ui/react-input";
 import GithubSignInButton from "./github-auth-button";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
@@ -41,7 +41,7 @@ export default function UserAuthForm() {
 		startTransition(() => {
 			signIn("credentials", {
 				email: data.email,
-				callbackUrl: callbackUrl ?? "/chat"
+				callbackUrl: callbackUrl ?? "/"
 			});
 			toast.success("Signed In Successfully!");
 		});

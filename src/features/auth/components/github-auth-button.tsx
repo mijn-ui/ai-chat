@@ -14,9 +14,7 @@ export default function GithubSignInButton() {
 			className="w-full"
 			color="default"
 			type="button"
-			onClick={() =>
-				signIn("github", { callbackUrl: callbackUrl ?? "/dashboard" })
-			}>
+			onClick={() => signIn("github", { callbackUrl: callbackUrl ?? "/" })}>
 			<FaGithub className="mr-2 size-4" />
 			Continue with Github
 		</Button>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M10,50 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0 z" fill="none" stroke="black" stroke-width="5"/>
+  <path d="M50,10 v80" fill="none" stroke="black" stroke-width="5"/>
+  <path d="M25,35 L75,35" fill="none" stroke="black" stroke-width="3"/>
+  <path d="M25,65 L75,65" fill="none" stroke="black" stroke-width="3"/>
+  <path d="M10,50 c10,20 40,30 70,20" fill="none" stroke="black" stroke-width="3"/>
+  <path d="M10,50 c10,-20 40,-30 70,-20" fill="none" stroke="black" stroke-width="3"/>
+</svg>

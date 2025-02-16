@@ -8,9 +8,38 @@
 	}
 	body {
 		@apply bg-background font-sans text-foreground antialiased;
+		font-family: Arial, Helvetica, sans-serif;
 	}
 }
 
 :root {
+	/* MijnUI Theme Tailwind Plugin Customizations Are Not Being Applied Correctly */
+	/* To Workaround this we override the default `mijn-ui` theme colors from here */
 	--mijnui-primary: 217.2 91.2% 59.8%;
+	--mijnui-default: 214.3 31.8% 91.4%;
+	--mijnui-border: 0 0% 84%;
+
+	--mijnui-sidebar-background: 220 14% 96%;
+	--mijnui-sidebar-foreground: 0 0% 25%;
+	--mijnui-sidebar-primary: 29 100% 52%;
+	--mijnui-sidebar-primary-foreground: 0 0% 100%;
+	--mijnui-sidebar-accent: 0 0% 90%;
+	--mijnui-sidebar-accent-foreground: 0 0% 0%;
+	--mijnui-sidebar-border: 0 0% 85%;
+	--mijnui-sidebar-ring: 0 0% 100%;
+}
+
+.dark {
+	--mijnui-primary: 217.2 91.2% 59.8%;
+	--mijnui-default: 240 3.7% 15.9%;
+	--mijnui-border: 0 0% 15%;
+
+	--mijnui-sidebar-background: 0 0% 4%;
+	--mijnui-sidebar-foreground: 0 0% 63.9%;
+	--mijnui-sidebar-primary: 29 100% 52%;
+	--mijnui-sidebar-primary-foreground: 0 0% 100%;
+	--mijnui-sidebar-accent: 0 0% 12%;
+	--mijnui-sidebar-accent-foreground: 0 0% 96%;
+	--mijnui-sidebar-border: 0 0% 15%;
+	--mijnui-sidebar-ring: 0 0% 0%;
 }

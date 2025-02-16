@@ -1,12 +1,21 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { cn } from "@mijn-ui/react-theme";
 import "@/app/globals.css";
 import { auth } from "@/lib/auth";
-import { cn } from "@mijn-ui/react-theme";
 import Providers from "../components/layout/provider";
 
-const inter = Inter({ subsets: ["latin"], fallback: ["sans serif"] });
+const geistSans = localFont({
+	src: "./fonts/GeistVF.woff",
+	variable: "--font-geist-sans",
+	weight: "100 900"
+});
+const geistMono = localFont({
+	src: "./fonts/GeistMonoVF.woff",
+	variable: "--font-geist-mono",
+	weight: "100 900"
+});
 
 export const metadata: Metadata = {
 	title: "PicoSbs",
@@ -36,7 +45,8 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 				href="/favicon/favicon-16x16.png"
 			/>
 			<link rel="manifest" href="/favicon/site.webmanifest" />
-			<body className={cn(inter.className, "antialiased")}>
+			<body
+				className={cn(geistSans.variable, geistMono.variable, "antialiased")}>
 				<Providers session={session}>{children}</Providers>
 			</body>
 		</html>

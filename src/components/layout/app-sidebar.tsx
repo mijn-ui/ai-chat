@@ -12,7 +12,7 @@ import { LuCloud, LuDatabase } from "react-icons/lu";
 
 const AppSidebar = () => {
 	return (
-		<Sidebar className="group/sidebar h-full">
+		<Sidebar className="group/sidebar h-full py-4">
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarMenu>

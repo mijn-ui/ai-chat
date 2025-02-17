@@ -15,12 +15,12 @@ export default async function AppLayout({
 }) {
 	return (
 		<div className="flex h-svh w-full flex-col">
-			<Header />
+			{/* <Header /> */}
 
 			<SidebarProvider className="relative flex h-full items-center bg-background">
 				<AppSidebar />
 
-				<SidebarInset>{children}</SidebarInset>
+				<SidebarInset className="px-1 py-4">{children}</SidebarInset>
 			</SidebarProvider>
 		</div>
 	);

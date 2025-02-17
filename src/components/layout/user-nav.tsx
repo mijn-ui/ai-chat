@@ -23,12 +23,12 @@ export function UserNav() {
 					<Button
 						variant="ghost"
 						className="relative size-8 rounded-full ring-offset-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-						<Avatar size="sm">
+						<Avatar size="sm" radius="full" className="overflow-hidden">
 							<AvatarImage
 								src={session.user?.image ?? ""}
 								alt={session.user?.name ?? ""}
 							/>
-							<AvatarFallback className="bg-gradient-to-tr from-purple-300 via-primary/50 to-muted text-foreground">
+							<AvatarFallback className="bg-orange-500">
 								{session.user?.name?.[0]}
 							</AvatarFallback>
 						</Avatar>

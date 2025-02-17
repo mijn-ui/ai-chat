@@ -45,3 +45,35 @@
 	--mijnui-sidebar-border: 0 0% 15%;
 	--mijnui-sidebar-ring: 0 0% 0%;
 }
+
+.custom_scroll_bar {
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+.custom_scroll_bar::-webkit-scrollbar {
+	height: 0.5rem;
+	width: 0.5rem;
+}
+
+@media (max-width: 768px) {
+	.custom_scroll_bar::-webkit-scrollbar {
+		height: 0.3rem;
+		width: 0.3rem;
+	}
+}
+
+.custom_scroll_bar::-webkit-scrollbar-thumb {
+	border-radius: 9999px;
+	@apply bg-muted;
+}
+
+.custom_scroll_bar::-webkit-scrollbar-track {
+	border-radius: 9999px;
+	@apply bg-transparent;
+	margin: 0.5rem 0.5rem;
+}
+
+.custom_scroll_bar::-webkit-scrollbar-corner {
+	@apply bg-transparent;
+}

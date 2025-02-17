@@ -39,7 +39,7 @@ const ChatViewPage = ({ defaultPanelOpen }: { defaultPanelOpen?: boolean }) => {
 				)}
 				<ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-x-px after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
 				<ResizablePanel id="main" order={2}>
-					<ChatMain setOpen={toggleOpen} />
+					<ChatMain toggleOpen={toggleOpen} />
 				</ResizablePanel>
 			</ResizablePanelGroup>
 		</PageWrapper>

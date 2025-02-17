@@ -11,11 +11,11 @@ const PageWrapper = ({
 	return (
 		<>
 			{scrollable ? (
-				<ScrollArea className="relative h-[calc(100dvh-64px)] rounded-large border bg-card">
+				<ScrollArea className="relative h-[calc(100dvh-32px)] rounded-large border bg-card">
 					{children}
 				</ScrollArea>
 			) : (
-				<div className="relative h-[calc(100dvh-64px)] rounded-large border bg-card">
+				<div className="relative h-[calc(100dvh-32px)] rounded-large border bg-card">
 					{children}
 				</div>
 			)}

@@ -1,6 +1,7 @@
 import { Button } from "@mijn-ui/react-button";
 import { Input } from "@mijn-ui/react-input";
 import { ScrollArea } from "@mijn-ui/react-scroll-area";
+import { UserNav } from "@/components/layout/user-nav";
 import { HiOutlineDocumentReport } from "react-icons/hi";
 import { HiMiniSparkles } from "react-icons/hi2";
 import {
@@ -14,20 +15,23 @@ import {
 	LuTrendingUp
 } from "react-icons/lu";
 import { MdCurrencyExchange, MdOutlineTrackChanges } from "react-icons/md";
-import { PiPaperPlane, PiPaperPlaneTilt } from "react-icons/pi";
 
-const ChatMain = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
+const ChatMain = ({ toggleOpen }: { toggleOpen: () => void }) => {
 	return (
 		<ScrollArea className="relative flex size-full flex-col items-center justify-center gap-2">
 			<Button
-				className="mt-4"
+				className="mt-2.5"
+				size="sm"
 				iconOnly
-				variant="outlined"
-				onClick={() => setOpen(true)}>
+				variant="ghost"
+				onClick={toggleOpen}>
 				<LuPanelLeft />
 			</Button>
-			<div className="flex flex-col items-center justify-center gap-6 pt-60">
+			<div className="absolute inset-x-0 top-[calc(50%-52px)] flex -translate-y-1/2 flex-col items-center justify-center gap-6">
 				<GeneralRecommandation />
+			</div>
+			<div className="absolute right-6 top-3">
+				<UserNav />
 			</div>
 			<div className="absolute bottom-8 z-50 flex w-full items-center justify-center">
 				<Input

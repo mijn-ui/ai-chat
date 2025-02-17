@@ -18,6 +18,7 @@
 	--mijnui-primary: 217.2 91.2% 59.8%;
 	--mijnui-default: 214.3 31.8% 91.4%;
 	--mijnui-border: 0 0% 84%;
+	--mijnui-input: 0 0% 84%;
 
 	--mijnui-sidebar-background: 220 14% 96%;
 	--mijnui-sidebar-foreground: 0 0% 25%;
@@ -33,6 +34,7 @@
 	--mijnui-primary: 217.2 91.2% 59.8%;
 	--mijnui-default: 240 3.7% 15.9%;
 	--mijnui-border: 0 0% 15%;
+	--mijnui-input: 0 0% 15%;
 
 	--mijnui-sidebar-background: 0 0% 4%;
 	--mijnui-sidebar-foreground: 0 0% 63.9%;

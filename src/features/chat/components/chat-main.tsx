@@ -1,7 +1,6 @@
 import { Button } from "@mijn-ui/react-button";
 import { Input } from "@mijn-ui/react-input";
 import { ScrollArea } from "@mijn-ui/react-scroll-area";
-import { FaPaperPlane } from "react-icons/fa";
 import { HiOutlineDocumentReport } from "react-icons/hi";
 import { HiMiniSparkles } from "react-icons/hi2";
 import {
@@ -11,9 +10,11 @@ import {
 	LuHandCoins,
 	LuPanelLeft,
 	LuSearch,
+	LuSend,
 	LuTrendingUp
 } from "react-icons/lu";
 import { MdCurrencyExchange, MdOutlineTrackChanges } from "react-icons/md";
+import { PiPaperPlane, PiPaperPlaneTilt } from "react-icons/pi";
 
 const ChatMain = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
 	return (
@@ -28,14 +29,23 @@ const ChatMain = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
 			<div className="flex flex-col items-center justify-center gap-6 pt-60">
 				<GeneralRecommandation />
 			</div>
-			<div className="absolute bottom-4 z-10 flex w-full items-center justify-center">
+			<div className="absolute bottom-8 z-50 flex w-full items-center justify-center">
 				<Input
 					classNames={{
-						wrapper: "max-w-screen-md"
+						wrapper: "max-w-screen-md",
+						base: "bg-default pr-12",
+						endIcon: "right-0 group/end-icon"
 					}}
 					startIcon={<LuSearch />}
 					placeholder="Some text for an ai..."
-					endIcon={<FaPaperPlane />}
+					endIcon={
+						<Button variant="ghost">
+							<LuSend
+								className="text-muted-foreground group-hover/end-icon:text-foreground"
+								size={16}
+							/>
+						</Button>
+					}
 				/>
 			</div>
 		</ScrollArea>

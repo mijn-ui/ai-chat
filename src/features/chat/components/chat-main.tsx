@@ -2,8 +2,18 @@ import { Button } from "@mijn-ui/react-button";
 import { Input } from "@mijn-ui/react-input";
 import { ScrollArea } from "@mijn-ui/react-scroll-area";
 import { FaPaperPlane } from "react-icons/fa";
+import { HiOutlineDocumentReport } from "react-icons/hi";
 import { HiMiniSparkles } from "react-icons/hi2";
-import { LuPanelLeft, LuSearch } from "react-icons/lu";
+import {
+	LuBox,
+	LuCreditCard,
+	LuFileSpreadsheet,
+	LuHandCoins,
+	LuPanelLeft,
+	LuSearch,
+	LuTrendingUp
+} from "react-icons/lu";
+import { MdCurrencyExchange, MdOutlineTrackChanges } from "react-icons/md";
 
 const ChatMain = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
 	return (
@@ -15,7 +25,7 @@ const ChatMain = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
 				onClick={() => setOpen(true)}>
 				<LuPanelLeft />
 			</Button>
-			<div className="flex flex-col items-center justify-center gap-4 pt-44">
+			<div className="flex flex-col items-center justify-center gap-6 pt-60">
 				<GeneralRecommandation />
 			</div>
 			<div className="absolute bottom-4 z-10 flex w-full items-center justify-center">
@@ -49,35 +59,38 @@ const GeneralRecommandation = () => {
 				</Button>
 			</div>
 
-			<div className="flex flex-col items-center justify-center gap-2">
-				<Button
-					variant="outlined"
-					className="h-auto w-full max-w-screen-sm items-start justify-start gap-2 p-4 text-left text-small text-muted-foreground">
-					<HiMiniSparkles className="mt-1 text-primary" size={18} />
-					<span className="font-medium">
-						How do age group and gender influence the average number of sessions
-						per user?
-					</span>
+			<div className="flex max-w-screen-sm flex-wrap items-center justify-center gap-4">
+				<Button radius="full" className="gap-2">
+					<LuFileSpreadsheet className="text-blue-600 dark:text-blue-400" />
+					Balance Sheet
 				</Button>
-
-				<Button
-					variant="outlined"
-					className="h-auto w-full max-w-screen-sm items-start justify-start gap-2 p-4 text-left text-small text-muted-foreground">
-					<HiMiniSparkles className="mt-1 text-primary" size={18} />
-					<span className="font-medium">
-						What are the month-on-month return rates for the top 5 product
-						categories by revenue over the last year?
-					</span>
+				<Button radius="full" className="gap-2">
+					<LuTrendingUp className="text-green-600 dark:text-green-400" />
+					Income Statement
 				</Button>
-
-				<Button
-					variant="outlined"
-					className="h-auto w-full max-w-screen-sm items-start justify-start gap-2 p-4 text-left text-small text-muted-foreground">
-					<HiMiniSparkles className="mt-1 text-primary" size={18} />
-					<span className="font-medium">
-						What is the return rate for different product categories, and how
-						does it impact overall profitability?
-					</span>
+				<Button radius="full" className="gap-2">
+					<MdCurrencyExchange className="text-purple-600 dark:text-purple-400" />
+					Cash Flow
+				</Button>
+				<Button radius="full" className="gap-2">
+					<MdOutlineTrackChanges className="text-yellow-600 dark:text-yellow-400" />
+					Equity Changes
+				</Button>
+				<Button radius="full" className="gap-2">
+					<LuBox className="text-yellow-600 dark:text-yellow-400" />
+					Inventory
+				</Button>
+				<Button radius="full" className="gap-2">
+					<HiOutlineDocumentReport className="text-blue-600 dark:text-blue-400" />
+					Sales Report
+				</Button>
+				<Button radius="full" className="gap-2">
+					<LuHandCoins className="text-green-600 dark:text-green-400" />
+					Receivables
+				</Button>
+				<Button radius="full" className="gap-2">
+					<LuCreditCard className="text-red-600 dark:text-red-400" />
+					Payables
 				</Button>
 			</div>
 		</>

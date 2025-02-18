@@ -65,7 +65,7 @@ const GeneralRecommandation = ({
 				What Can I ask?
 			</Button>
 		</div>
-		<div className="flex max-w-screen-sm flex-wrap items-center justify-start gap-4 sm:justify-center">
+		<div className="flex max-w-screen-sm flex-wrap items-center justify-start gap-4 md:justify-center">
 			{suggestionItems.map((item) => (
 				<Button key={item.id} size="sm" radius="full">
 					{item.icon}

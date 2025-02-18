@@ -22,7 +22,6 @@ const ChatViewPage = ({ defaultPanelOpen }: { defaultPanelOpen?: boolean }) => {
 
 	const toggleOpen = useCallback((open?: boolean) => {
 		setOpen((prev) => {
-			console.log(open ?? !prev);
 			const newState = open ?? !prev;
 			document.cookie = `chatPanel:state=${newState}; path=/; max-age=${COOKIE_MAX_AGE}`;
 
@@ -41,7 +40,7 @@ const ChatViewPage = ({ defaultPanelOpen }: { defaultPanelOpen?: boolean }) => {
 						<ResizablePanel
 							id="left"
 							order={1}
-							className="border-r"
+							className="relative border-r"
 							defaultSize={90}
 							minSize={12}
 							maxSize={24}>

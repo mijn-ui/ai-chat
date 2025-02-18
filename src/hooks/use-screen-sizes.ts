@@ -1,4 +1,6 @@
-import { useMediaQuery } from "@mijn-ui/react-hooks";
+"use client";
+
+import useMediaQuery from "./use-media-query";
 
 /**
  * Media query strings for different screen sizes.

@@ -18,9 +18,9 @@ export default async function AppLayout({
 			{/* <Header /> */}
 
 			<SidebarProvider className="relative flex h-full items-center bg-background">
-				<AppSidebar />
+				<AppSidebar className="hidden lg:block" />
 
-				<SidebarInset className="px-1 py-4">{children}</SidebarInset>
+				<SidebarInset className="lg:px-1 lg:py-4">{children}</SidebarInset>
 			</SidebarProvider>
 		</div>
 	);

@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@mijn-ui/react-theme";
 import {
-	SidebarTrigger as MijnUiSidebarTrigger,
 	Sidebar,
 	SidebarContent,
 	SidebarGroup,
@@ -10,9 +10,9 @@ import {
 } from "../ui/sidebar";
 import { LuCloud, LuDatabase } from "react-icons/lu";
 
-const AppSidebar = () => {
+const AppSidebar = ({ className }: { className?: string }) => {
 	return (
-		<Sidebar className="group/sidebar h-full py-4">
+		<Sidebar className={cn("group/sidebar h-full py-4", className)}>
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarMenu>

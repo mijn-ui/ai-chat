@@ -44,5 +44,4 @@
 		]
 	],
 	"eslint.format.enable": true,
-	"npm.packageManager": "npm",
 }

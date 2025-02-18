@@ -4,11 +4,26 @@ import { Label } from "@mijn-ui/react-label";
 import { cn } from "@mijn-ui/react-theme";
 import Gradient from "@/components/decorators/gradient";
 import { FiEdit } from "react-icons/fi";
+import { LuX } from "react-icons/lu";
 
-const ChatPanel = () => {
+type ChatPanelProps = {
+	className?: string;
+	toggleOpen?: (open?: boolean) => void;
+};
+const ChatPanel = ({ toggleOpen, className }: ChatPanelProps) => {
 	return (
-		<div className="relative flex size-full flex-col overflow-y-auto pt-12">
-			<ChatPanelHeader className="absolute inset-x-0 top-0 rounded-l-large bg-card/95 pb-1 pt-3 backdrop-blur-[3px]" />
+		<div
+			className={cn(
+				"relative flex size-full flex-col overflow-y-auto pt-12",
+				className
+			)}>
+			<ChatPanelHeader
+				toggleOpen={toggleOpen}
+				className={cn(
+					"absolute inset-x-0 top-0 bg-card/95 pb-1 pt-3 backdrop-blur-[3px]",
+					"lg:rounded-l-lg"
+				)}
+			/>
 
 			<div className="custom_scroll_bar flex w-full flex-col items-start gap-1 overflow-y-auto px-4 pb-3 pt-6">
 				<Label className="text-xs">Previous 7 Days</Label>
@@ -27,10 +42,15 @@ const ChatPanel = () => {
 	);
 };
 
+type ChatPanelHeaderProps = {
+	toggleOpen?: (open?: boolean) => void;
+} & React.ComponentPropsWithRef<"div">;
+
 const ChatPanelHeader = ({
+	toggleOpen,
 	className,
 	...props
-}: React.ComponentPropsWithRef<"div">) => {
+}: ChatPanelHeaderProps) => {
 	return (
 		<>
 			<div
@@ -39,7 +59,16 @@ const ChatPanelHeader = ({
 					className
 				)}
 				{...props}>
-				<div className="flex items-center gap-2">
+				<Button
+					onClick={() => toggleOpen?.(false)}
+					iconOnly
+					size="sm"
+					radius="full"
+					variant="ghost"
+					className="lg:hidden">
+					<LuX size={16} />
+				</Button>
+				<div className="hidden items-center gap-2 lg:flex">
 					<Image src={"/picosbs.png"} width={24} height={24} alt="picosbs" />
 					<p className="text-small">Pico Chat</p>
 				</div>
@@ -47,7 +76,7 @@ const ChatPanelHeader = ({
 					<FiEdit className="-mr-0.5 -mt-0.5" />
 				</Button>
 			</div>
-			<Gradient className="top-10 h-12" />
+			<Gradient className="top-12 h-10" />
 		</>
 	);
 };

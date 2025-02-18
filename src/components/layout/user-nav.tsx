@@ -5,20 +5,22 @@ import { Button } from "@mijn-ui/react-button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
-	DropdownMenuShortcut,
 	DropdownMenuTrigger
 } from "@mijn-ui/react-dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
+import { LuFlag, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 
 export function UserNav() {
 	const { data: session } = useSession();
 	if (session) {
 		return (
-			<DropdownMenu>
+			<DropdownMenu
+				classNames={{
+					subTriggerIcon: "hidden"
+				}}>
 				<DropdownMenuTrigger asChild>
 					<Button
 						variant="ghost"
@@ -46,25 +48,24 @@ export function UserNav() {
 						</div>
 					</DropdownMenuLabel>
 					<DropdownMenuSeparator />
-					<DropdownMenuGroup>
-						<DropdownMenuItem>
-							Profile
-							<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Billing
-							<DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Settings
-							<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-						</DropdownMenuItem>
-						<DropdownMenuItem>New Team</DropdownMenuItem>
-					</DropdownMenuGroup>
+					<DropdownMenuItem className="justify-between">
+						Update Profile
+						<LuUser />
+					</DropdownMenuItem>
+					<DropdownMenuItem className="justify-between">
+						Report A Bug
+						<LuFlag />
+					</DropdownMenuItem>
+					<DropdownMenuItem className="justify-between">
+						Settings
+						<LuSettings />
+					</DropdownMenuItem>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem onClick={() => signOut()}>
-						Log out
-						<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+					<DropdownMenuItem
+						className="flex items-center justify-between text-red-400 focus:bg-danger/20 focus:text-red-400"
+						onClick={() => signOut()}>
+						Sign Out
+						<LuLogOut />
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>

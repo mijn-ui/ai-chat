@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { cn } from "@mijn-ui/react-theme";
 import "@/app/globals.css";
+import QueryProvider from "@/components/query-provider";
 import { auth } from "@/lib/auth";
 import Providers from "../components/layout/provider";
 
@@ -18,7 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "PicoSbs",
+	title: "Pico Chat",
 	description: "Retrieval-Augmented Generation(RAG) ChatBot"
 };
 
@@ -47,7 +48,9 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 			<link rel="manifest" href="/favicon/site.webmanifest" />
 			<body
 				className={cn(geistSans.variable, geistMono.variable, "antialiased")}>
-				<Providers session={session}>{children}</Providers>
+				<Providers session={session}>
+					<QueryProvider>{children}</QueryProvider>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -17,12 +17,18 @@ const PageWrapper = ({
 		<>
 			{scrollable ? (
 				<ScrollArea
-					className={cn("relative h-svh lg:h-[calc(100svh-32px)]", className)}>
+					className={cn(
+						"relative h-svh border bg-card lg:h-[calc(100svh-32px)] lg:rounded-large",
+						className
+					)}>
 					{children}
 				</ScrollArea>
 			) : (
 				<div
-					className={cn("relative h-svh lg:h-[calc(100svh-32px)]", className)}>
+					className={cn(
+						"relative h-svh border bg-card lg:h-[calc(100svh-32px)] lg:rounded-large",
+						className
+					)}>
 					{children}
 				</div>
 			)}

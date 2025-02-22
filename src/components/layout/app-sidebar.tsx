@@ -1,31 +1,86 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Separator } from "@mijn-ui/react-separator";
 import { cn } from "@mijn-ui/react-theme";
+import { IconMap } from "@/constants/icon-maps";
+import {
+	SIDEBAR_DEFAULT_ITEMS,
+	SidebarDefaultItemsType
+} from "@/constants/sidebar";
+import { categoriesQueryOptions } from "@/lib/query-options/categories-query-options";
+import { useQuery } from "@tanstack/react-query";
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarGroup,
+	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton
 } from "../ui/sidebar";
-import { LuCloud, LuDatabase } from "react-icons/lu";
 
 const AppSidebar = ({ className }: { className?: string }) => {
+	const { data: categories } = useQuery(categoriesQueryOptions());
+
 	return (
-		<Sidebar className={cn("group/sidebar h-full py-4", className)}>
+		<Sidebar className={cn("h-full", "lg:py-4", className)}>
+			<SidebarHeader className="flex h-12 items-center justify-center border-b lg:mx-2">
+				<SidebarMenuButton className="p-1.5" asChild>
+					<Link href={"/"}>
+						<Image
+							src={"/picosbs.png"}
+							width={24}
+							height={24}
+							alt="picosbs"
+							className="size-full"
+						/>
+					</Link>
+				</SidebarMenuButton>
+			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarMenu>
-						<SidebarMenuButton active tooltip="Upload Data">
-							<LuDatabase />
-						</SidebarMenuButton>
-						<SidebarMenuButton tooltip="Weather Chat">
-							<LuCloud />
-						</SidebarMenuButton>
+						<SidebarMenuItems items={SIDEBAR_DEFAULT_ITEMS} />
+
+						<Separator className="my-1" />
+
+						{categories && <SidebarMenuItems items={categories} />}
 					</SidebarMenu>
 				</SidebarGroup>
 			</SidebarContent>
 		</Sidebar>
+	);
+};
+
+/* -------------------------------------------------------------------------- */
+
+type SidebarMenuItemsProps = {
+	items: SidebarDefaultItemsType[];
+};
+
+const SidebarMenuItems = ({ items }: SidebarMenuItemsProps) => {
+	const pathname = usePathname().split("/").filter(Boolean)[0];
+
+	return (
+		<>
+			{items.map(({ id, icon, title, url }) => {
+				const Icon = IconMap[icon];
+
+				return (
+					<SidebarMenuButton
+						asChild
+						key={id}
+						tooltip={title}
+						active={pathname === url}>
+						<Link href={url}>
+							<Icon />
+						</Link>
+					</SidebarMenuButton>
+				);
+			})}
+		</>
 	);
 };
 

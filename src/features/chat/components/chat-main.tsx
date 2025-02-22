@@ -1,21 +1,12 @@
 import { Button } from "@mijn-ui/react-button";
 import { Input } from "@mijn-ui/react-input";
-import { ScrollArea } from "@mijn-ui/react-scroll-area";
 import { cn } from "@mijn-ui/react-theme";
-import { UserNav } from "@/components/layout/user-nav";
 import { SUGGESTION_ITEMS, SuggestionItem } from "../constants";
 import { HiSparkles } from "react-icons/hi";
-import { LuPanelLeft, LuSearch, LuSend } from "react-icons/lu";
+import { LuSearch, LuSend } from "react-icons/lu";
 
-const ChatMain = ({ toggleOpen }: { toggleOpen: (open?: boolean) => void }) => (
-	<ScrollArea className="relative flex size-full flex-col items-center justify-center gap-2">
-		<ChatMainHeader className="lg:pl-0">
-			<Button size="sm" iconOnly variant="ghost" onClick={() => toggleOpen()}>
-				<LuPanelLeft />
-			</Button>
-			<UserNav />
-		</ChatMainHeader>
-
+const ChatMain = () => (
+	<>
 		<div className="absolute inset-x-0 top-[calc(50%-52px)] flex -translate-y-1/2 flex-col items-center justify-center gap-6">
 			<GeneralRecommandation suggestionItems={SUGGESTION_ITEMS} />
 		</div>
@@ -39,7 +30,7 @@ const ChatMain = ({ toggleOpen }: { toggleOpen: (open?: boolean) => void }) => (
 				}
 			/>
 		</ChatMainFooter>
-	</ScrollArea>
+	</>
 );
 
 /* -------------------------------------------------------------------------- */
@@ -86,23 +77,6 @@ const ChatMainFooter = ({
 		<div
 			className={cn(
 				"absolute bottom-8 z-30 flex w-full items-center justify-center px-4",
-				className
-			)}
-			{...props}
-		/>
-	);
-};
-
-/* -------------------------------------------------------------------------- */
-
-const ChatMainHeader = ({
-	className,
-	...props
-}: React.ComponentPropsWithRef<"div">) => {
-	return (
-		<div
-			className={cn(
-				"flex w-full items-center justify-between gap-2 px-4 py-3 text-muted-foreground",
 				className
 			)}
 			{...props}

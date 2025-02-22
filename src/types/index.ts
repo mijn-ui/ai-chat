@@ -3,7 +3,10 @@ export type CATEGORY_ICON_TYPE =
 	| "trending-up"
 	| "exchange"
 	| "credit-card"
-	| "hand-coins";
+	| "hand-coins"
+	| "database"
+	| "mail"
+	| "code";
 
 export type ERPChat = {
 	id: string;

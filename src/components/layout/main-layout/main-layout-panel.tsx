@@ -18,14 +18,17 @@ const MainLayoutPanel = () => {
 	const { onPanelOpenChange } = useMainLayoutContext();
 
 	const pathname = usePathname().split("/").filter(Boolean)[0];
-	const { data: categories } = useQuery(categoryQueryOptions(pathname));
+	const { data: categories, isPending } = useQuery(
+		categoryQueryOptions(pathname)
+	);
+
+	const title =
+		categories?.title || toCapitalizedWords(pathname) || "Pico Chats";
 
 	return (
 		<div className={cn("relative flex size-full flex-col overflow-y-auto")}>
 			<MainLayoutPanelHeader
-				title={
-					categories?.title || toCapitalizedWords(pathname) || "Pico Chats"
-				}
+				title={title}
 				onPanelOpenChange={onPanelOpenChange}
 				className={cn(
 					"sticky inset-x-0 top-0 bg-card/95",
@@ -33,9 +36,11 @@ const MainLayoutPanel = () => {
 				)}
 			/>
 			<div className="custom_scroll_bar flex w-full flex-col items-start gap-1 space-y-4 overflow-y-auto px-4">
-				{categories?.chats !== undefined && (
-					<ChatListSection url={categories.url} chats={categories.chats} />
-				)}
+				<ChatListSection
+					loading={isPending}
+					url={categories?.url}
+					chats={categories?.chats}
+				/>
 			</div>
 		</div>
 	);
@@ -83,16 +88,35 @@ const MainLayoutPanelHeader = ({
 		</div>
 	);
 };
+
 /* -------------------------------------------------------------------------- */
 /*                               ChatListSection                              */
 /* -------------------------------------------------------------------------- */
 
 type ChatListSectionProps = {
-	chats: ERPChat[];
-	url: string;
+	loading?: boolean;
+	chats?: ERPChat[];
+	url?: string;
 };
 
-const ChatListSection = ({ url, chats }: ChatListSectionProps) => {
+const ChatListSection = ({ url, chats, loading }: ChatListSectionProps) => {
+	if (loading) {
+		return (
+			<div className="relative w-full space-y-3">
+				<div className="h-3 w-24 animate-pulse rounded-full bg-muted" />
+				<div className="flex flex-col gap-2">
+					<div className="h-6 w-full animate-pulse rounded-medium bg-muted" />
+					<div className="h-6 w-full animate-pulse rounded-medium bg-muted" />
+					<div className="h-6 w-full animate-pulse rounded-medium bg-muted" />
+					<div className="h-6 w-full animate-pulse rounded-medium bg-muted" />
+					<div className="h-6 w-full animate-pulse rounded-medium bg-muted" />
+				</div>
+			</div>
+		);
+	}
+
+	if (!chats) return;
+
 	const groupedChats = groupChatsByDate(chats);
 	const pathname = usePathname();
 

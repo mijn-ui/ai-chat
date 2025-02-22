@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import AppSidebar from "@/components/layout/app-sidebar";
 import {
-	MAIN_LAYOUT_COOKIE_NAME,
 	MainLayout,
 	MainLayoutProvider
 } from "@/components/layout/main-layout/main-layout";
@@ -20,7 +19,7 @@ export default async function Layout({
 }) {
 	const cookieStore = await cookies();
 	const defaultPanelOpen =
-		cookieStore.get(MAIN_LAYOUT_COOKIE_NAME)?.value === "true";
+		cookieStore.get("layoutPanel:state")?.value === "true";
 
 	return (
 		<div className="flex h-svh w-full flex-col">

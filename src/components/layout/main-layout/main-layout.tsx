@@ -58,8 +58,7 @@ const MainLayoutProvider = ({
 	);
 
 	const setOpen = useCallback((open: boolean) => {
-		document.cookie =
-			document.cookie = `${MAIN_LAYOUT_COOKIE_NAME}=${open}; path=/; max-age=${MAIN_LAYOUT_COOKIE_MAX_AGE}`;
+		document.cookie = `${MAIN_LAYOUT_COOKIE_NAME}=${open}; path=/; max-age=${MAIN_LAYOUT_COOKIE_MAX_AGE}; SameSite=None; Secure`;
 		_setOpen(open);
 	}, []);
 

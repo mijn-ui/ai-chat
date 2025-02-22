@@ -22,7 +22,7 @@ import {
 } from "../ui/sidebar";
 
 const AppSidebar = ({ className }: { className?: string }) => {
-	const { data: categories } = useQuery(categoriesQueryOptions());
+	const { data: categories, isPending } = useQuery(categoriesQueryOptions());
 
 	return (
 		<Sidebar className={cn("h-full", "lg:py-4", className)}>
@@ -43,10 +43,8 @@ const AppSidebar = ({ className }: { className?: string }) => {
 				<SidebarGroup>
 					<SidebarMenu>
 						<SidebarMenuItems items={SIDEBAR_DEFAULT_ITEMS} />
-
 						<Separator className="my-1" />
-
-						{categories && <SidebarMenuItems items={categories} />}
+						<SidebarMenuItems loading={isPending} items={categories} />
 					</SidebarMenu>
 				</SidebarGroup>
 			</SidebarContent>
@@ -57,15 +55,27 @@ const AppSidebar = ({ className }: { className?: string }) => {
 /* -------------------------------------------------------------------------- */
 
 type SidebarMenuItemsProps = {
-	items: SidebarDefaultItemsType[];
+	loading?: boolean;
+	items?: SidebarDefaultItemsType[];
 };
 
-const SidebarMenuItems = ({ items }: SidebarMenuItemsProps) => {
+const SidebarMenuItems = ({ loading, items }: SidebarMenuItemsProps) => {
 	const pathname = usePathname().split("/").filter(Boolean)[0];
+
+	if (loading) {
+		return (
+			<>
+				<div className="size-8 animate-pulse rounded-medium bg-muted" />
+				<div className="size-8 animate-pulse rounded-medium bg-muted" />
+				<div className="size-8 animate-pulse rounded-medium bg-muted" />
+				<div className="size-8 animate-pulse rounded-medium bg-muted" />
+			</>
+		);
+	}
 
 	return (
 		<>
-			{items.map(({ id, icon, title, url }) => {
+			{items?.map(({ id, icon, title, url }) => {
 				const Icon = IconMap[icon];
 
 				return (
@@ -74,7 +84,7 @@ const SidebarMenuItems = ({ items }: SidebarMenuItemsProps) => {
 						key={id}
 						tooltip={title}
 						active={pathname === url}>
-						<Link href={url}>
+						<Link href={`/${url}`}>
 							<Icon />
 						</Link>
 					</SidebarMenuButton>

@@ -1,5 +1,6 @@
 import pluginJs from "@eslint/js";
 import nextPlugin from "@next/eslint-plugin-next";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import pluginPromise from "eslint-plugin-promise";
@@ -32,6 +33,7 @@ export default [
 	pluginReact.configs.flat.recommended,
 	pluginReact.configs.flat["jsx-runtime"],
 	eslintConfigPrettier,
+	...pluginQuery.configs["flat/recommended"],
 	...tailwind.configs["flat/recommended"],
 	{
 		rules: {

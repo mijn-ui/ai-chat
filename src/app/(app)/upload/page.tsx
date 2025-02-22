@@ -1,4 +1,4 @@
-import FileUpload from "@/features/upload/components/file-upload";
+import FileUpload from "@/features/upload/components/upload-view";
 
 const Upload = () => {
 	return <FileUpload />;

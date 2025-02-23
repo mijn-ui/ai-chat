@@ -11,7 +11,7 @@ const MainLayoutHeader = ({ className }: { className?: string }) => {
 	return (
 		<div
 			className={cn(
-				"flex w-full items-center justify-between gap-2 px-4 py-3 text-muted-foreground",
+				"sticky top-0 flex w-full items-center justify-between gap-2 px-4 py-3 text-muted-foreground",
 				className
 			)}>
 			<Button

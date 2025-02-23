@@ -6,7 +6,7 @@ import Dropzone, {
 	type DropzoneProps,
 	type FileRejection
 } from "react-dropzone";
-import { LuUpload, LuX } from "react-icons/lu";
+import { LuFile, LuUpload, LuX } from "react-icons/lu";
 import { toast } from "sonner";
 import { Button } from "@mijn-ui/react-button";
 import { useControlledState } from "@mijn-ui/react-hooks";
@@ -257,9 +257,9 @@ const FileUploader = (props: FileUploaderProps) => {
 				)}
 			</Dropzone>
 			<div className="flex h-fit w-full flex-col gap-4 rounded-2xl border bg-background p-4">
-				<h3 className="mx-2 text-medium font-medium">Uploaded Files</h3>
+				<h3 className="mx-2 text-small font-medium">Uploaded Files</h3>
 				<ScrollArea className="rounded-large border bg-card p-2">
-					<div className="flex size-full max-h-64 min-h-32 flex-col gap-4">
+					<div className="flex size-full max-h-64 min-h-32 flex-col gap-2">
 						{files?.length > 0 &&
 							files?.map((file, index) => (
 								<FileCard
@@ -286,16 +286,9 @@ function FileCard({ file, progress, onRemove }: FileCardProps) {
 	return (
 		<div className="relative flex items-center space-x-4">
 			<div className="flex flex-1 space-x-4">
-				{isFileWithPreview(file) ? (
-					<Image
-						src={file.preview}
-						alt={file.name}
-						width={48}
-						height={48}
-						loading="lazy"
-						className="aspect-square shrink-0 object-cover"
-					/>
-				) : null}
+				<span className="flex aspect-square w-12 shrink-0 items-center justify-center rounded-medium bg-muted/70 text-xl text-muted-foreground">
+					<LuFile />
+				</span>
 				<div className="flex w-full flex-col gap-2">
 					<div className="space-y-px">
 						<p className="line-clamp-1 text-sm font-medium text-foreground/80">

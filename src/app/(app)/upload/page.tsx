@@ -1,7 +1,7 @@
-import FileUpload from "@/features/upload/components/upload-view";
+import UploadView from "@/features/upload/components/upload-view";
 
 const Upload = () => {
-	return <FileUpload />;
+	return <UploadView />;
 };
 
 export default Upload;

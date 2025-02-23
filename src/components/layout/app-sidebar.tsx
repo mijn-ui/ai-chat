@@ -88,10 +88,8 @@ const SidebarMenuItems = ({ items, loading }: SidebarMenuItemsProps) => {
 				const Icon = IconMap[icon];
 				const link =
 					!Array.isArray(chats) || !chats.length
-						? `${url}`
+						? `/${url}`
 						: `/${url}/${chats[0].id}`;
-
-				console.log(link);
 
 				return (
 					<SidebarMenuButton

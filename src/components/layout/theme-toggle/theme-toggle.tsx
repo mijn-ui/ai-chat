@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Button, ButtonProps } from "@mijn-ui/react-button";
 import { LuMoon, LuSun } from "react-icons/lu";
+import { Button, ButtonProps } from "@mijn-ui/react-button";
 
 /* -------------------------------------------------------------------------- */
 

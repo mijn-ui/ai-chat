@@ -1,5 +1,7 @@
 "use client";
 
+import { signOut, useSession } from "next-auth/react";
+import { LuFlag, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 import { Avatar, AvatarFallback, AvatarImage } from "@mijn-ui/react-avatar";
 import { Button } from "@mijn-ui/react-button";
 import {
@@ -10,8 +12,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger
 } from "@mijn-ui/react-dropdown-menu";
-import { signOut, useSession } from "next-auth/react";
-import { LuFlag, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 
 export function UserNav() {
 	const { data: session } = useSession();

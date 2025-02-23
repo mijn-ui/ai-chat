@@ -1,5 +1,7 @@
 "use client";
 
+import { LuGripVertical } from "react-icons/lu";
+import * as ResizablePrimitive from "react-resizable-panels";
 import { createTVUnstyledSlots } from "@mijn-ui/react-core";
 import { useTVUnstyled } from "@mijn-ui/react-hooks";
 import {
@@ -10,8 +12,6 @@ import {
 	tv
 } from "@mijn-ui/react-theme";
 import { createContext } from "@mijn-ui/react-utilities";
-import { LuGripVertical } from "react-icons/lu";
-import * as ResizablePrimitive from "react-resizable-panels";
 
 /* -------------------------------------------------------------------------- */
 /*                              Resizable Styles                              */

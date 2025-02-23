@@ -1,9 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Button } from "@mijn-ui/react-button";
 import { signIn } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
+import { Button } from "@mijn-ui/react-button";
 
 export default function GithubSignInButton() {
 	const searchParams = useSearchParams();

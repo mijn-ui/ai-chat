@@ -1,20 +1,20 @@
 "use client";
 
 import { useCallback } from "react";
+import { MainLayoutHeader } from "./main-layout-header";
+import MainLayoutPanel from "./main-layout-panel";
 import { useControlledState } from "@mijn-ui/react-hooks";
 import { ScrollArea } from "@mijn-ui/react-scroll-area";
 import { cn } from "@mijn-ui/react-theme";
 import { createContext } from "@mijn-ui/react-utilities";
-import AppSidebar from "@/components/layout/app-sidebar";
-import PageWrapper from "@/components/layout/page-wrapper";
+import { useIsDesktop } from "@/hooks/use-screen-sizes";
 import {
 	ResizableHandle,
 	ResizablePanel,
 	ResizablePanelGroup
 } from "@/components/ui/resizeable";
-import { useIsDesktop } from "@/hooks/use-screen-sizes";
-import { MainLayoutHeader } from "./main-layout-header";
-import MainLayoutPanel from "./main-layout-panel";
+import AppSidebar from "@/components/layout/app-sidebar";
+import PageWrapper from "@/components/layout/page-wrapper";
 
 export const MAIN_LAYOUT_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 export const MAIN_LAYOUT_COOKIE_NAME = "layoutPanel:state";

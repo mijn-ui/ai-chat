@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Logo from "@/components/layout/logo";
 import UserAuthForm from "./user-auth-form";
+import Logo from "@/components/layout/logo";
 
 export const metadata: Metadata = {
 	title: "Authentication",

@@ -1,4 +1,3 @@
-import { CATEGORY_ICON_TYPE } from "@/types";
 import type { IconType } from "react-icons/lib";
 import {
 	LuCode,
@@ -10,6 +9,7 @@ import {
 	LuRefreshCw,
 	LuTrendingUp
 } from "react-icons/lu";
+import { CATEGORY_ICON_TYPE } from "@/types";
 
 export const IconMap: Record<CATEGORY_ICON_TYPE, IconType> = {
 	"spread-sheet": LuFileSpreadsheet,

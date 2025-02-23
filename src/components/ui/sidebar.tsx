@@ -1,6 +1,12 @@
 "use client";
 
 import React, { ComponentPropsWithRef } from "react";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger
+} from "./tooltip";
 import { Button } from "@mijn-ui/react-button";
 import { createTVUnstyledSlots } from "@mijn-ui/react-core";
 import { useControlledState, useTVUnstyled } from "@mijn-ui/react-hooks";
@@ -14,12 +20,6 @@ import {
 } from "@mijn-ui/react-theme";
 import { createContext } from "@mijn-ui/react-utilities";
 import { Slot } from "@radix-ui/react-slot";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger
-} from "./tooltip";
 
 /* -------------------------------------------------------------------------- */
 

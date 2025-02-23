@@ -1,6 +1,7 @@
 // Protecting routes with next-auth
 // https://next-auth.js.org/configuration/nextjs#middleware
 // https://nextjs.org/docs/app/building-your-application/routing/middleware
+import NextAuth from "next-auth";
 import authConfig from "@/lib/auth.config";
 import {
 	DEFAULT_LOGIN_REDIRECT,
@@ -8,7 +9,6 @@ import {
 	authRoutes,
 	publicRoutes
 } from "@/route";
-import NextAuth from "next-auth";
 
 const { auth } = NextAuth(authConfig);
 

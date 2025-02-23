@@ -1,9 +1,9 @@
-import { Button } from "@mijn-ui/react-button";
-import { cn } from "@mijn-ui/react-theme";
 import ThemeToggler from "../theme-toggle/theme-toggle";
 import { UserNav } from "../user-nav";
 import { useMainLayoutContext } from "./main-layout";
 import { LuPanelLeft } from "react-icons/lu";
+import { Button } from "@mijn-ui/react-button";
+import { cn } from "@mijn-ui/react-theme";
 
 const MainLayoutHeader = ({ className }: { className?: string }) => {
 	const { panelOpen, onPanelOpenChange } = useMainLayoutContext();

@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { cn } from "@mijn-ui/react-theme";
-import "@/app/globals.css";
-import QueryProvider from "@/components/query-provider";
-import { auth } from "@/lib/auth";
 import Providers from "../components/layout/provider";
+import { cn } from "@mijn-ui/react-theme";
+import { auth } from "@/lib/auth";
+import QueryProvider from "@/components/query-provider";
+import "@/app/globals.css";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",

@@ -1,9 +1,9 @@
-import { Button } from "@mijn-ui/react-button";
-import { Input } from "@mijn-ui/react-input";
-import { cn } from "@mijn-ui/react-theme";
 import { SUGGESTION_ITEMS, SuggestionItem } from "../constants";
 import { HiSparkles } from "react-icons/hi";
 import { LuSearch, LuSend } from "react-icons/lu";
+import { Button } from "@mijn-ui/react-button";
+import { Input } from "@mijn-ui/react-input";
+import { cn } from "@mijn-ui/react-theme";
 
 const ChatMain = () => (
 	<>

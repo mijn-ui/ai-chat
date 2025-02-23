@@ -2,6 +2,12 @@
 
 import { useTransition } from "react";
 import { useSearchParams } from "next/navigation";
+import GithubSignInButton from "./github-auth-button";
+import { signIn } from "next-auth/react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@mijn-ui/react-button";
 import { Input } from "@mijn-ui/react-input";
 import {
@@ -12,12 +18,6 @@ import {
 	FormLabel,
 	FormMessage
 } from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import GithubSignInButton from "./github-auth-button";
-import { signIn } from "next-auth/react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import * as z from "zod";
 
 const formSchema = z.object({
 	email: z.string().email({ message: "Enter a valid email address" })

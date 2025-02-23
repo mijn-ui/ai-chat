@@ -2,18 +2,18 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { Button } from "@mijn-ui/react-button";
-import { useControlledState } from "@mijn-ui/react-hooks";
-import { Progress } from "@mijn-ui/react-progress";
-import { ScrollArea } from "@mijn-ui/react-scroll-area";
-import { cn } from "@mijn-ui/react-theme";
-import { formatBytes } from "@/lib/utils";
 import Dropzone, {
 	type DropzoneProps,
 	type FileRejection
 } from "react-dropzone";
 import { LuUpload, LuX } from "react-icons/lu";
 import { toast } from "sonner";
+import { Button } from "@mijn-ui/react-button";
+import { useControlledState } from "@mijn-ui/react-hooks";
+import { Progress } from "@mijn-ui/react-progress";
+import { ScrollArea } from "@mijn-ui/react-scroll-area";
+import { cn } from "@mijn-ui/react-theme";
+import { formatBytes } from "@/lib/utils";
 
 type FileUploaderProps = React.HTMLAttributes<HTMLDivElement> & {
 	/**

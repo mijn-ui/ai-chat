@@ -3,9 +3,6 @@
 // I'm still deciding on the best npm package to use or whether to provide my own solution. Stay tuned!
 /* -------------------------------------------------------------------------- */
 import * as React from "react";
-import { Label } from "@mijn-ui/react-label";
-import { cn } from "@mijn-ui/react-theme";
-import { Slot } from "@radix-ui/react-slot";
 import {
 	Controller,
 	type ControllerProps,
@@ -14,6 +11,9 @@ import {
 	FormProvider,
 	useFormContext
 } from "react-hook-form";
+import { Label } from "@mijn-ui/react-label";
+import { cn } from "@mijn-ui/react-theme";
+import { Slot } from "@radix-ui/react-slot";
 
 const Form = FormProvider;
 

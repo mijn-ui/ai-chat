@@ -22,10 +22,16 @@ export default {
 	importOrder: [
 		"^react$",
 		"^next(/.*)?$",
-		"next-themes",
-		"@mijn-ui/*",
-		"@/*",
-		"<THIRD_PARTY_MODULES>"
+		"<THIRD_PARTY_MODULES>",
+		"^@(?!/)(.*)$",
+		"^@/types/(.*)$",
+		"^@/constants/(.*)$",
+		"^@/lib/(.*)$",
+		"^@/hooks/(.*)$",
+		"^@/components/ui/(.*)$",
+		"^@/components/(.*)$",
+		"^@/app/(.*)$",
+		"@/*"
 	],
 	importOrderSeparation: false,
 	importOrderSortSpecifiers: true

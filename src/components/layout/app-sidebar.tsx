@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Separator } from "@mijn-ui/react-separator";
 import { cn } from "@mijn-ui/react-theme";
-import { IconMap } from "@/constants/icon-maps";
-import {
-	SIDEBAR_DEFAULT_ITEMS,
-	SidebarDefaultItemsType
-} from "@/constants/sidebar";
-import { categoriesQueryOptions } from "@/lib/query-options/categories-query-options";
 import { useQuery } from "@tanstack/react-query";
+import { IconMap } from "@/constants/icon-maps";
+import { SIDEBAR_DEFAULT_ITEMS } from "@/constants/sidebar";
+import { categoriesQueryOptions } from "@/lib/query-options/categories-query-options";
+import { useActivePathSegment } from "@/hooks/use-active-path-segment";
 import {
 	Sidebar,
 	SidebarContent,
@@ -19,7 +16,8 @@ import {
 	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton
-} from "../ui/sidebar";
+} from "@/components/ui/sidebar";
+import { CATEGORY_ICON_TYPE, ERPChat } from "@/types";
 
 const AppSidebar = ({ className }: { className?: string }) => {
 	const { data: categories, isPending } = useQuery(categoriesQueryOptions());
@@ -42,7 +40,10 @@ const AppSidebar = ({ className }: { className?: string }) => {
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarMenu>
-						<SidebarMenuItems items={SIDEBAR_DEFAULT_ITEMS} />
+						<SidebarMenuItems
+							loading={isPending}
+							items={SIDEBAR_DEFAULT_ITEMS}
+						/>
 						<Separator className="my-1" />
 						<SidebarMenuItems loading={isPending} items={categories} />
 					</SidebarMenu>
@@ -55,12 +56,18 @@ const AppSidebar = ({ className }: { className?: string }) => {
 /* -------------------------------------------------------------------------- */
 
 type SidebarMenuItemsProps = {
+	items?: {
+		id: string;
+		title: string;
+		icon: CATEGORY_ICON_TYPE;
+		url: string;
+		chats?: ERPChat[];
+	}[];
 	loading?: boolean;
-	items?: SidebarDefaultItemsType[];
 };
 
-const SidebarMenuItems = ({ loading, items }: SidebarMenuItemsProps) => {
-	const pathname = usePathname().split("/").filter(Boolean)[0];
+const SidebarMenuItems = ({ items, loading }: SidebarMenuItemsProps) => {
+	const activePath = useActivePathSegment();
 
 	if (loading) {
 		return (
@@ -73,18 +80,26 @@ const SidebarMenuItems = ({ loading, items }: SidebarMenuItemsProps) => {
 		);
 	}
 
+	if (!items) return null;
+
 	return (
 		<>
-			{items?.map(({ id, icon, title, url }) => {
+			{items.map(({ id, icon, title, url, chats }) => {
 				const Icon = IconMap[icon];
+				const link =
+					!Array.isArray(chats) || !chats.length
+						? `${url}`
+						: `/${url}/${chats[0].id}`;
+
+				console.log(link);
 
 				return (
 					<SidebarMenuButton
 						asChild
 						key={id}
 						tooltip={title}
-						active={pathname === url}>
-						<Link href={`/${url}`}>
+						active={activePath === url}>
+						<Link href={link}>
 							<Icon />
 						</Link>
 					</SidebarMenuButton>

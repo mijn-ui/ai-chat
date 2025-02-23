@@ -2,33 +2,44 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@mijn-ui/react-button";
-import { Label } from "@mijn-ui/react-label";
-import { cn } from "@mijn-ui/react-theme";
-import { groupChatsByDate } from "@/constants/fake-erp-categories";
-import { categoryQueryOptions } from "@/lib/query-options/categories-query-options";
-import { toCapitalizedWords } from "@/lib/utils";
-import { ERPChat } from "@/types";
-import { useQuery } from "@tanstack/react-query";
 import { useMainLayoutContext } from "./main-layout";
 import { FiEdit } from "react-icons/fi";
 import { LuX } from "react-icons/lu";
+import { Button } from "@mijn-ui/react-button";
+import { Label } from "@mijn-ui/react-label";
+import { cn } from "@mijn-ui/react-theme";
+import { useQuery } from "@tanstack/react-query";
+import { groupChatsByDate } from "@/constants/fake-erp-categories";
+import { SIDEBAR_DEFAULT_ITEMS } from "@/constants/sidebar";
+import { categoryQueryOptions } from "@/lib/query-options/categories-query-options";
+import { getPathSegment, toCapitalizedWords } from "@/lib/utils";
+import { useActivePathSegment } from "@/hooks/use-active-path-segment";
+import { ERPChat } from "@/types";
 
 const MainLayoutPanel = () => {
 	const { onPanelOpenChange } = useMainLayoutContext();
+	const activePath = useActivePathSegment();
 
-	const pathname = usePathname().split("/").filter(Boolean)[0];
-	const { data: categories, isPending } = useQuery(
-		categoryQueryOptions(pathname)
+	const isDefaultUrl = SIDEBAR_DEFAULT_ITEMS.some(
+		(item) => getPathSegment(item.url) === activePath
+	);
+
+	const isFetchableUrl = !isDefaultUrl && !!activePath;
+
+	const { data: categories, isLoading } = useQuery(
+		// we won't be fetching categories if the current path is a default url
+		categoryQueryOptions(activePath, isFetchableUrl)
 	);
 
 	const title =
-		categories?.title || toCapitalizedWords(pathname) || "Pico Chats";
+		categories?.title || toCapitalizedWords(activePath) || "Pico Chat";
 
 	return (
 		<div className={cn("relative flex size-full flex-col overflow-y-auto")}>
 			<MainLayoutPanelHeader
 				title={title}
+				displayNewChatButton={isFetchableUrl}
+				newChatUrl={`/${activePath}`}
 				onPanelOpenChange={onPanelOpenChange}
 				className={cn(
 					"sticky inset-x-0 top-0 bg-card/95",
@@ -37,7 +48,7 @@ const MainLayoutPanel = () => {
 			/>
 			<div className="custom_scroll_bar flex w-full flex-col items-start gap-1 space-y-4 overflow-y-auto px-4">
 				<ChatListSection
-					loading={isPending}
+					loading={isLoading}
 					url={categories?.url}
 					chats={categories?.chats}
 				/>
@@ -53,12 +64,16 @@ const MainLayoutPanel = () => {
 type MainLayoutPanelHeaderProps = {
 	title: string;
 	onPanelOpenChange: (open: boolean) => void;
+	newChatUrl?: string;
+	displayNewChatButton?: boolean;
 } & React.ComponentPropsWithRef<"div">;
 
 const MainLayoutPanelHeader = ({
 	title,
 	onPanelOpenChange,
 	className,
+	newChatUrl,
+	displayNewChatButton,
 	...props
 }: MainLayoutPanelHeaderProps) => {
 	return (
@@ -79,12 +94,16 @@ const MainLayoutPanelHeader = ({
 				</Button>
 			</div>
 
-			<div className="p-2 lg:px-4 lg:py-3">
-				<Button size="sm" className="w-full gap-2" variant="outlined">
-					New Chat
-					<FiEdit className="-mr-0.5 -mt-0.5" />
-				</Button>
-			</div>
+			{displayNewChatButton && newChatUrl && (
+				<div className="p-2 lg:px-4 lg:py-3">
+					<Button asChild size="sm" className="w-full gap-2" variant="outlined">
+						<Link href={newChatUrl}>
+							New Chat
+							<FiEdit className="-mr-0.5 -mt-0.5" />
+						</Link>
+					</Button>
+				</div>
+			)}
 		</div>
 	);
 };

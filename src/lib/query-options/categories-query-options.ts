@@ -1,5 +1,5 @@
-import { queryOptions } from "@tanstack/react-query";
 import { ERPCategories } from "../../types";
+import { queryOptions } from "@tanstack/react-query";
 
 export function categoriesQueryOptions() {
 	return queryOptions({
@@ -19,10 +19,14 @@ const getCategories = async (): Promise<ERPCategories[]> => {
 
 /* -------------------------------------------------------------------------- */
 
-export function categoryQueryOptions(categoryId: string) {
+export function categoryQueryOptions(
+	categoryId: string,
+	enabled: boolean = true
+) {
 	return queryOptions({
 		queryKey: ["chats", categoryId],
-		queryFn: () => getChats(categoryId)
+		queryFn: () => getChats(categoryId),
+		enabled
 	});
 }
 

@@ -1,11 +1,11 @@
 import { ERPCategories } from "@/types";
 
-export type SidebarDefaultItemsType = Pick<
+type SidebarDefualtItemsType = Pick<
 	ERPCategories,
-	"id" | "title" | "url" | "icon"
+	"id" | "icon" | "title" | "url"
 >;
 
-export const SIDEBAR_DEFAULT_ITEMS: SidebarDefaultItemsType[] = [
+export const SIDEBAR_DEFAULT_ITEMS: SidebarDefualtItemsType[] = [
 	{
 		id: "sidebar-item-0",
 		icon: "database",

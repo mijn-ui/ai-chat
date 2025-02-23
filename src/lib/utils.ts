@@ -32,6 +32,28 @@ export function formatDateFromNow(dateString: string): string {
 /* -------------------------------------------------------------------------- */
 
 /**
+ * Utility function to retrieve a specific segment of a given path.
+ *
+ * @param path - The path string to extract the segment from.
+ * @param segmentIndex - The index of the segment to retrieve. Defaults to 0.
+ * @returns The segment at the specified index, or null if the index is out of bounds.
+ *
+ * @example
+ * // Assuming the path is '/home/user/profile'
+ * const segment = getPathSegment('/home/user/profile', 1); // Returns 'user'
+ */
+export const getPathSegment = (
+	path: string,
+	segmentIndex: number = 0
+): string | null => {
+	const segments = path.split("/").filter(Boolean);
+
+	return segments[segmentIndex] || null;
+};
+
+/* -------------------------------------------------------------------------- */
+
+/**
  * Converts a given string to kebab-case.
  *
  * Kebab-case is a string format where words are separated by hyphens (`-`)

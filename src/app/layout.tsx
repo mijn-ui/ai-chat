@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Providers from "../components/layout/provider";
 import { cn } from "@mijn-ui/react-theme";
 import { auth } from "@/lib/auth";
+import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/components/query-provider";
 import "@/app/globals.css";
 
@@ -49,7 +50,10 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 			<body
 				className={cn(geistSans.variable, geistMono.variable, "antialiased")}>
 				<Providers session={session}>
-					<QueryProvider>{children}</QueryProvider>
+					<QueryProvider>
+						<Toaster />
+						{children}
+					</QueryProvider>
 				</Providers>
 			</body>
 		</html>

@@ -146,7 +146,7 @@ const ChatListSection = ({ url, chats, loading }: ChatListSectionProps) => {
 			</Label>
 			<div className="flex flex-col gap-1">
 				{group.map((chat, index) => {
-					const chatLink = `/${url}/${chat.id}`;
+					const chatLink = `${url}/${chat.id}`;
 
 					return (
 						<Button

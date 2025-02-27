@@ -1,9 +1,12 @@
-import { ERPCategories } from "../../types";
 import { queryOptions } from "@tanstack/react-query";
+import { ERPCategories } from "@/types";
 
 export function categoriesQueryOptions() {
 	return queryOptions({
 		queryKey: ["categories"],
+		meta: {
+			errorMessage: "Failed to fetch categories."
+		},
 		queryFn: getCategories
 	});
 }
@@ -26,6 +29,9 @@ export function categoryQueryOptions(
 	return queryOptions({
 		queryKey: ["chats", categoryId],
 		queryFn: () => getChats(categoryId),
+		meta: {
+			errorMessage: "Failed to fetch categories chats."
+		},
 		enabled
 	});
 }

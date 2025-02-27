@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { fakeERPCategories } from "@/constants/fake-erp-categories";
+import { getPathSegment } from "@/lib/utils";
 
 export async function GET(
 	_: Request,
@@ -8,7 +9,7 @@ export async function GET(
 	const { slug } = await params;
 
 	const category = fakeERPCategories.find(
-		(category) => category.id === slug || category.url === slug
+		(category) => category.id === slug || getPathSegment(category.url) === slug
 	);
 
 	if (!category) {

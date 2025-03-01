@@ -29,6 +29,9 @@ importers:
       '@mijn-ui/react-core':
         specifier: ^0.0.7
         version: 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-dialog':
+        specifier: ^0.0.20
+        version: 0.0.20(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
       '@mijn-ui/react-dropdown-menu':
         specifier: ^0.0.17
         version: 0.0.17(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
@@ -56,6 +59,9 @@ importers:
       '@mijn-ui/react-skeleton':
         specifier: ^0.0.15
         version: 0.0.15(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-textarea':
+        specifier: ^0.0.16
+        version: 0.0.16(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@mijn-ui/react-theme':
         specifier: ^0.0.13
         version: 0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)
@@ -113,6 +119,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      usehooks-ts:
+        specifier: ^3.1.1
+        version: 3.1.1(react@19.0.0)
       zod:
         specifier: ^3.24.1
         version: 3.24.2
@@ -553,6 +562,14 @@ packages:
       react: ^19.0
       react-dom: ^19.0
 
+  '@mijn-ui/react-button@0.0.20':
+    resolution: {integrity: sha512-kmaB3rBBlPvAWv2PUvw7w30BYJjtjVF2wFujjhltz/w/HTajggYyPqGHNbDPz04TcPEdmkaSqdmSZnUStPrOwA==}
+    peerDependencies:
+      '@mijn-ui/react-core': ^0.0.8
+      '@mijn-ui/react-theme': ^0.0.13
+      react: ^19.0
+      react-dom: ^19.0
+
   '@mijn-ui/react-card@0.0.15':
     resolution: {integrity: sha512-TYBTWE+M6BAEPDDpUuRlWUNi0Ao0M8rZ5oRpXtkhJOe0nn3DcffmkKYyS60c5XjnQAL8iueaRJI0icTGexhOfw==}
     peerDependencies:
@@ -575,6 +592,14 @@ packages:
       react-dom: ^19.0
       tailwindcss: '>=3.4.0'
 
+  '@mijn-ui/react-dialog@0.0.20':
+    resolution: {integrity: sha512-AwjI8LbZH32jvWGh4W/fUlX4vsrw2+kwfedW+DogoM1UcVUadhSD/vx+KcYZfjg5oNdQF/n9L/YfU9nBY0WQ5A==}
+    peerDependencies:
+      '@mijn-ui/react-core': ^0.0.8
+      '@mijn-ui/react-theme': ^0.0.13
+      react: ^19.0
+      react-dom: ^19.0
+
   '@mijn-ui/react-dropdown-menu@0.0.17':
     resolution: {integrity: sha512-Rlvw7T7cxE7FxNDf+IAS/IdP3bcBNqOGU6asCiY+tbNxcXvQrDo0XbS2iJSByKuVujX1DnVi500S0ewEDWsz1A==}
     peerDependencies:
@@ -587,6 +612,17 @@ packages:
     resolution: {integrity: sha512-jVs2ML+//4ohScKfkdZ+c+KKGjO0laiml1alt+FrGIvYq7+fLRF8XP6tZVf+ugLYYAKq64mfiCeMFZGzhCiWDA==}
     peerDependencies:
       '@mijn-ui/react-core': ^0.0.7
+      react: ^19.0
+      react-dom: ^19.0
+      tailwindcss: '*'
+    peerDependenciesMeta:
+      tailwindcss:
+        optional: true
+
+  '@mijn-ui/react-hooks@0.0.16':
+    resolution: {integrity: sha512-oUJkgIXck1ErGI+EWxK9iKkJVqefMSvuNigZK26I2s/lLPspU0e3w4zBKKSvTZO1Wl0mh84K4SRoZoZKgEqp+A==}
+    peerDependencies:
+      '@mijn-ui/react-core': ^0.0.8
       react: ^19.0
       react-dom: ^19.0
       tailwindcss: '*'
@@ -648,6 +684,14 @@ packages:
     peerDependencies:
       '@mijn-ui/react-core': ^0.0.7
       '@mijn-ui/react-theme': ^0.0.12
+      react: ^19.0
+      react-dom: ^19.0
+
+  '@mijn-ui/react-textarea@0.0.16':
+    resolution: {integrity: sha512-+YM0Fhw1nhRZNlODAEQVymh2hz2DE/C/mPMU2v3VfvrJOa+Ci0C9/eEdpgo/E/hubkqymngK+AZyuex0DyvMxw==}
+    peerDependencies:
+      '@mijn-ui/react-core': ^0.0.8
+      '@mijn-ui/react-theme': ^0.0.13
       react: ^19.0
       react-dom: ^19.0
 
@@ -2470,6 +2514,9 @@ packages:
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
 
@@ -3348,6 +3395,12 @@ packages:
       '@types/react':
         optional: true
 
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
+
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -3819,6 +3872,19 @@ snapshots:
       - '@types/react'
       - tailwindcss
 
+  '@mijn-ui/react-button@0.0.20(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
+    dependencies:
+      '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-theme': 0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)
+      '@mijn-ui/react-utilities': 0.0.9(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/shared-icons': 0.0.4(react@19.0.0)
+      '@radix-ui/react-slot': 1.1.2(@types/react@19.0.8)(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - tailwindcss
+
   '@mijn-ui/react-card@0.0.15(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
     dependencies:
       '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
@@ -3846,6 +3912,21 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       tailwindcss: 3.4.17
 
+  '@mijn-ui/react-dialog@0.0.20(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
+    dependencies:
+      '@mijn-ui/react-button': 0.0.20(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-hooks': 0.0.16(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-theme': 0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)
+      '@mijn-ui/react-utilities': 0.0.9(react@19.0.0)(tailwindcss@3.4.17)
+      '@radix-ui/react-dialog': 1.1.6(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - tailwindcss
+
   '@mijn-ui/react-dropdown-menu@0.0.17(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
     dependencies:
       '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
@@ -3862,6 +3943,14 @@ snapshots:
       - tailwindcss
 
   '@mijn-ui/react-hooks@0.0.15(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
+    dependencies:
+      '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    optionalDependencies:
+      tailwindcss: 3.4.17
+
+  '@mijn-ui/react-hooks@0.0.16(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)':
     dependencies:
       '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
       react: 19.0.0
@@ -3958,6 +4047,13 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
     transitivePeerDependencies:
       - tailwindcss
+
+  '@mijn-ui/react-textarea@0.0.16(@mijn-ui/react-core@0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17))(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@mijn-ui/react-core': 0.0.7(@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      '@mijn-ui/react-theme': 0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   '@mijn-ui/react-theme@0.0.13(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)':
     dependencies:
@@ -5881,6 +5977,8 @@ snapshots:
 
   lodash.camelcase@4.3.0: {}
 
+  lodash.debounce@4.0.8: {}
+
   lodash.isplainobject@4.0.6: {}
 
   lodash.kebabcase@4.1.1: {}
@@ -6738,6 +6836,11 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.0.8
+
+  usehooks-ts@3.1.1(react@19.0.0):
+    dependencies:
+      lodash.debounce: 4.0.8
+      react: 19.0.0
 
   util-deprecate@1.0.2: {}
 

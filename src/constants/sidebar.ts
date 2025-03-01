@@ -1,7 +1,7 @@
-import { ERPCategories } from "@/types";
+import { ERPCategory } from "@/types";
 
 type SidebarDefualtItemsType = Pick<
-	ERPCategories,
+	ERPCategory,
 	"id" | "icon" | "title" | "url"
 >;
 

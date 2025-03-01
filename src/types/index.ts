@@ -14,7 +14,7 @@ export type ERPChat = {
 	created_at: string;
 };
 
-export type ERPCategories = {
+export type ERPCategory = {
 	id: string;
 	title: string;
 	url: string;

@@ -8,14 +8,14 @@ import {
 	parseISO
 } from "date-fns";
 import { faker } from "@faker-js/faker";
-import { ERPCategories, ERPChat } from "@/types";
+import { ERPCategory, ERPChat } from "@/types";
 
-export const fakeERPCategories: ERPCategories[] = sortByDate([
+export const fakeERPCategories: ERPCategory[] = sortByDate([
 	{
 		id: "1f0e3822-d06d-488b-8c10-193134a18144",
 		title: "Balance Sheet Overview",
 		icon: "spread-sheet",
-		url: "/balance-sheet-overview",
+		url: "balance-sheet-overview",
 		created_at: generateRandomDate(),
 		chats: [
 			{
@@ -129,7 +129,7 @@ export const fakeERPCategories: ERPCategories[] = sortByDate([
 		id: "2b1585cc-66b1-407d-bc0e-967a44f9d845",
 		title: "Income Statement Analysis",
 		icon: "trending-up",
-		url: "/income-statement-analysis",
+		url: "income-statement-analysis",
 		created_at: generateRandomDate(),
 		chats: [
 			{
@@ -147,7 +147,7 @@ export const fakeERPCategories: ERPCategories[] = sortByDate([
 	{
 		id: "c414ef35-f552-4b4b-ad18-ce1766a879c5",
 		title: "Cash Flow Report",
-		url: "/cash-flow-report",
+		url: "cash-flow-report",
 		icon: "exchange",
 		created_at: generateRandomDate(),
 		chats: [
@@ -171,7 +171,7 @@ export const fakeERPCategories: ERPCategories[] = sortByDate([
 	{
 		id: "415c8d67-6c86-4d5d-a434-997e5a53f2c6",
 		title: "Accounts Payable Summary",
-		url: "/accounts-payable-summary",
+		url: "accounts-payable-summary",
 		icon: "credit-card",
 		created_at: generateRandomDate(),
 		chats: [
@@ -235,7 +235,7 @@ function generateRandomDate() {
  * @param categories - The array of ERPCategories to be sorted.
  * @returns The sorted array of ERPCategories.
  */
-export function sortByDate(categories: ERPCategories[]): ERPCategories[] {
+export function sortByDate(categories: ERPCategory[]): ERPCategory[] {
 	return categories.sort((a, b) =>
 		compareDesc(parseISO(a.created_at), parseISO(b.created_at))
 	);

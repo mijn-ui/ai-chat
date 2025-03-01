@@ -68,6 +68,10 @@
 	@apply bg-muted;
 }
 
+.custom_scroll_bar.custom_scroll_bar_light::-webkit-scrollbar-thumb {
+	@apply bg-neutral-300 dark:bg-neutral-500;
+}
+
 .custom_scroll_bar::-webkit-scrollbar-track {
 	border-radius: 9999px;
 	@apply bg-transparent;

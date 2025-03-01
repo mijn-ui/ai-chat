@@ -1,5 +1,5 @@
-import { mijnui } from "@mijn-ui/react-theme";
 import animationPlugin from "tailwindcss-animate";
+import { mijnui } from "@mijn-ui/react-theme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -21,6 +21,9 @@ export default {
 					border: "hsl(var(--mijnui-sidebar-border))",
 					ring: "hsl(var(--mijnui-sidebar-ring))"
 				}
+			},
+			screens: {
+				xs: "380px"
 			}
 		}
 	},

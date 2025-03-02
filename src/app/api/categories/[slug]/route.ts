@@ -17,7 +17,7 @@ export async function GET(
 	if (!category) {
 		return new NextResponse(
 			JSON.stringify({
-				message: `Category with ID or Url: ${slug} doesn't exist.`
+				message: `Category with ID or URL: ${slug} doesn't exist.`
 			}),
 			{ status: 404 }
 		);
@@ -29,7 +29,7 @@ export async function GET(
 		if (!chat) {
 			return new NextResponse(
 				JSON.stringify({
-					message: `Chat with ID: ${chatId} doesn't exist.`
+					message: `Chat with ID: ${chatId} doesn't exist within category: ${category.id}.`
 				}),
 				{ status: 404 }
 			);

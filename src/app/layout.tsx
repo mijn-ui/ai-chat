@@ -5,7 +5,6 @@ import Providers from "../components/layout/provider";
 import { cn } from "@mijn-ui/react-theme";
 import { auth } from "@/lib/auth";
 import { Toaster } from "@/components/ui/toaster";
-import QueryProvider from "@/components/query-provider";
 import "@/app/globals.css";
 
 const geistSans = localFont({
@@ -50,10 +49,8 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 			<body
 				className={cn(geistSans.variable, geistMono.variable, "antialiased")}>
 				<Providers session={session}>
-					<QueryProvider>
-						<Toaster />
-						{children}
-					</QueryProvider>
+					<Toaster />
+					{children}
 				</Providers>
 			</body>
 		</html>

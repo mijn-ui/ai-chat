@@ -12,6 +12,7 @@ import {
 	ResizablePanel,
 	ResizablePanelGroup
 } from "@/components/ui/resizeable";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export const CHAT_LAYOUT_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 export const CHAT_LAYOUT_COOKIE_NAME = "chatPanel:state";
@@ -64,11 +65,14 @@ const ChatLayoutProvider = ({
 	return (
 		<ChatLayoutContextProvider
 			value={{ panelOpen: open, onPanelOpenChange: setOpen }}>
-			<div
-				className={cn("group/chatLayout", className)}
-				data-state={open ? "open" : "closed"}>
+			<SidebarProvider
+				open={open}
+				onOpenChange={setOpen}
+				collapsible={false}
+				className={cn("group/chatLayout", className)}>
+				{" "}
 				{children}
-			</div>
+			</SidebarProvider>
 		</ChatLayoutContextProvider>
 	);
 };

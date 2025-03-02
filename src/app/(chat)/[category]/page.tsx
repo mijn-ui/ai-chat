@@ -1,7 +1,7 @@
 import ChatViewPage from "@/features/chat/components/chat-view";
 
-const Page = () => {
+const Category = () => {
 	return <ChatViewPage />;
 };
 
-export default Page;
+export default Category;

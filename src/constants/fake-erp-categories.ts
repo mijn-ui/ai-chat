@@ -268,7 +268,6 @@ type GroupedChats = {
  * //   { title: "September", group: [{ id: "3", ... }] }
  * // ]
  */
-
 export const groupChatsByDate = (chats: ERPChat[]): GroupedChats[] => {
 	const grouped: { [key: string]: ERPChat[] } = {};
 

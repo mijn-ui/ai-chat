@@ -4,7 +4,7 @@ import { Separator } from "@mijn-ui/react-separator";
 import { cn } from "@mijn-ui/react-theme";
 import { IconMap } from "@/constants/icon-maps";
 import { SIDEBAR_DEFAULT_ITEMS } from "@/constants/sidebar";
-import { fetchCategoryData } from "@/lib/api";
+import { fetchCategories } from "@/lib/api";
 import {
 	Sidebar,
 	SidebarContent,
@@ -16,13 +16,13 @@ import {
 import { CATEGORY_ICON_TYPE, ERPChat } from "@/types";
 
 const AppSidebar = async ({ className }: { className?: string }) => {
-	const categories = await fetchCategoryData();
+	const categories = await fetchCategories();
 
 	return (
 		<Sidebar className={cn("h-full", "lg:py-4", className)}>
 			<SidebarHeader className="flex h-12 items-center justify-center border-b lg:mx-2">
 				<SidebarMenuButton className="p-1.5" asChild>
-					<Link href={"/"}>
+					<Link href={"#"}>
 						<Image
 							src={"/picosbs.png"}
 							width={24}
@@ -61,10 +61,9 @@ type SidebarMenuItemsProps = {
 const SidebarMenuItems = ({ items }: SidebarMenuItemsProps) => {
 	return items.map(({ id, icon, title, url, chats }) => {
 		const Icon = IconMap[icon];
-		const link =
-			!Array.isArray(chats) || !chats.length
-				? `${url}`
-				: `/${url}/${chats[0].id}`;
+		// Check if the items are default sidebar items or category items.
+		// The sidebar default items URL already includes a leading '/', so it doesn't need to be added again.
+		const link = !Array.isArray(chats) || !chats.length ? `${url}` : `/${url}`;
 
 		return (
 			<SidebarMenuButton asChild key={id} tooltip={title}>

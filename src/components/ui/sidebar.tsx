@@ -7,8 +7,16 @@ import {
 	TooltipProvider,
 	TooltipTrigger
 } from "./tooltip";
+import { LuX } from "react-icons/lu";
 import { Button } from "@mijn-ui/react-button";
 import { createTVUnstyledSlots } from "@mijn-ui/react-core";
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogContentProps,
+	DialogTitle
+} from "@mijn-ui/react-dialog";
 import { useControlledState, useTVUnstyled } from "@mijn-ui/react-hooks";
 import { ScrollArea } from "@mijn-ui/react-scroll-area";
 import {
@@ -32,6 +40,10 @@ const SIDEBAR_ICON_WIDTH = 48;
 
 const sidebarStyles = tv({
 	variants: {
+		collapsible: {
+			true: "",
+			false: ""
+		},
 		state: {
 			open: "",
 			closed: ""
@@ -50,7 +62,7 @@ const sidebarStyles = tv({
 	slots: {
 		provider: "",
 		sidebar:
-			"relative flex h-svh flex-col bg-sidebar text-sidebar-foreground transition-[width] duration-300",
+			"relative flex h-svh w-[var(--mijnui-sidebar-icon-width)] flex-col bg-sidebar text-sidebar-foreground transition-[width] duration-300",
 		sidebarInset: "size-full",
 		sidebarTrigger: "",
 		sidebarHeader: "sticky top-0 flex shrink-0 items-center gap-2",
@@ -60,21 +72,15 @@ const sidebarStyles = tv({
 		sidebarMenu: "flex flex-col gap-1 px-2",
 		sidebarMenuItem: "relative",
 		sidebarMenuButton:
-			"inline-flex h-7 items-center gap-2 rounded-medium text-left text-small outline-none transition-[width,height,padding] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar-ring [&>span]:truncate [&>svg]:shrink-0"
+			"inline-flex size-8 h-7 items-center gap-2 rounded-medium p-2.5 text-left text-small outline-none transition-[width,height,padding] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar-ring [&>span]:hidden [&>span]:truncate [&>svg]:shrink-0"
 	},
 	compoundVariants: [
 		{
+			collapsible: true,
 			state: "open",
 			class: {
 				sidebar: "w-[var(--mijnui-sidebar-width)]",
 				sidebarMenuButton: "w-full px-3"
-			}
-		},
-		{
-			state: "closed",
-			class: {
-				sidebar: "w-[var(--mijnui-sidebar-icon-width)]",
-				sidebarMenuButton: "size-8 p-2.5 [&>span]:hidden"
 			}
 		}
 	]
@@ -121,6 +127,7 @@ const useSidebarStyles = (unstyledOverride?: boolean) => {
 
 export type SidebarProviderProps = SidebarBaseProps &
 	SidebarVariantProps & {
+		collapsible?: boolean;
 		open?: boolean;
 		defaultOpen?: boolean;
 		onOpenChange?: (state: boolean) => void;
@@ -131,6 +138,7 @@ const SidebarProvider = ({
 	unstyled,
 	className,
 	classNames,
+	collapsible = true,
 	defaultOpen = false,
 	open: controlledOpen,
 	onOpenChange: controlledOnOpenChange,
@@ -142,7 +150,10 @@ const SidebarProvider = ({
 		controlledOnOpenChange
 	);
 
-	const styles = sidebarStyles({ state: open ? "open" : "closed" });
+	const styles = sidebarStyles({
+		state: open ? "open" : "closed",
+		collapsible
+	});
 	const { provider } = createTVUnstyledSlots(
 		{ provider: styles.provider },
 		unstyled
@@ -194,6 +205,45 @@ const Sidebar = ({ unstyled, className, ...props }: SidebarProps) => {
 			data-state={open ? "open" : "closed"}
 			{...props}
 		/>
+	);
+};
+
+/* -------------------------------------------------------------------------- */
+/*                                SidebarMobile                               */
+/* -------------------------------------------------------------------------- */
+
+export type SidebarDialogProps = DialogContentProps;
+
+const SidebarDialog = ({
+	className,
+	children,
+	...props
+}: SidebarDialogProps) => {
+	const { open, onOpenChange } = useSidebarContext();
+
+	return (
+		<Dialog open={open} onOpenChange={onOpenChange}>
+			<DialogContent
+				unstyled
+				className={cn(
+					"fixed inset-y-0 left-0 z-50 flex w-72 border-r bg-card transition duration-500 ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left",
+					className
+				)}
+				{...props}>
+				{children}
+				<DialogTitle className="sr-only">Sidebar</DialogTitle>
+				<DialogClose unstyled asChild>
+					<Button
+						iconOnly
+						size="sm"
+						radius="full"
+						variant="ghost"
+						className="absolute right-2 top-1">
+						<LuX size={16} />
+					</Button>
+				</DialogClose>
+			</DialogContent>
+		</Dialog>
 	);
 };
 
@@ -447,6 +497,7 @@ const SidebarMenuButton = ({
 export {
 	SidebarProvider,
 	Sidebar,
+	SidebarDialog,
 	SidebarInset,
 	SidebarTrigger,
 	SidebarHeader,

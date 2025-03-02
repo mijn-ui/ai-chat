@@ -13,16 +13,18 @@ const ChatHeader = ({ className, title }: ChatHeaderProps) => {
 		<div
 			className={cn(
 				"sticky top-0 flex w-full items-center justify-between gap-2 bg-card/90 px-4 py-3 text-muted-foreground backdrop-blur",
-				"rounded-tr-large",
+				"rounded-t-large",
 				className
 			)}>
-			<ChatResizablePanelTrigger className="shrink-0" />
+			<div className="flex w-1/2 items-center gap-2">
+				<ChatResizablePanelTrigger className="shrink-0" />
 
-			{title && (
-				<h3 className="w-36 min-w-0 shrink-0 text-small font-semibold xs:w-48 lg:hidden">
-					<span className="block truncate">{title}</span>
-				</h3>
-			)}
+				{title && (
+					<h3 className="w-full min-w-0 shrink-0 text-small font-semibold lg:hidden">
+						<span className="block truncate">{title}</span>
+					</h3>
+				)}
+			</div>
 
 			<div className="flex shrink-0 items-center gap-2">
 				<ThemeToggler variant="ghost" />

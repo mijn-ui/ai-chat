@@ -22,7 +22,7 @@ const AppSidebar = async ({ className }: { className?: string }) => {
 		<Sidebar className={cn("h-full", "lg:py-4", className)}>
 			<SidebarHeader className="flex h-12 items-center justify-center border-b lg:mx-2">
 				<SidebarMenuButton className="p-1.5" asChild>
-					<Link href={"#"}>
+					<Link href={"/"}>
 						<Image
 							src={"/picosbs.png"}
 							width={24}

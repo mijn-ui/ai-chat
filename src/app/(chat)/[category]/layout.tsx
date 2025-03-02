@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 import { fetchCategories, fetchCategory } from "@/lib/api";
 import { SidebarDialog, SidebarInset } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/layout/app-sidebar";
@@ -14,11 +15,19 @@ import {
 import ChatPanel from "@/features/chat/components/chat-panel";
 import { ERPCategory } from "@/types";
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-	const { id } = params;
-	const category = await fetchCategory(id);
+export async function generateMetadata({
+	params
+}: {
+	params: Promise<{ category: string }>;
+}) {
+	const { category } = await params;
+	const { category: categoryData } = await fetchCategory(category);
 
-	return { title: category.title };
+	if (!categoryData) {
+		notFound();
+	}
+
+	return { title: categoryData.title };
 }
 
 export async function generateStaticParams() {
@@ -40,7 +49,11 @@ export default async function CategoryLayout({
 	const cookieStore = await cookies();
 	const defaultPanelOpen = cookieStore.get("chatPanel:state")?.value === "true";
 
-	const category = await fetchCategory(categoryParams);
+	const { category } = await fetchCategory(categoryParams);
+
+	if (!category) {
+		notFound();
+	}
 
 	return (
 		<ChatLayoutProvider

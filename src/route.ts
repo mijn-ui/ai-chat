@@ -1,7 +1,7 @@
 /**
  * List of public routes that do not require authentication.
  */
-export const publicRoutes = [];
+export const publicRoutes = ["/"];
 
 /**
  * List of authentication-related routes.

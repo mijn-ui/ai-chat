@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import { LuFlag, LuLogOut, LuSettings, LuUser } from "react-icons/lu";
 import { Avatar, AvatarFallback, AvatarImage } from "@mijn-ui/react-avatar";
@@ -15,6 +16,7 @@ import {
 
 export function UserNav() {
 	const { data: session } = useSession();
+
 	if (session) {
 		return (
 			<DropdownMenu
@@ -71,4 +73,10 @@ export function UserNav() {
 			</DropdownMenu>
 		);
 	}
+
+	return (
+		<Button size="sm" color="secondary" asChild>
+			<Link href={"/signin"}>Sign In</Link>
+		</Button>
+	);
 }

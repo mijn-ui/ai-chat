@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { fetchCategories, fetchChat } from "@/lib/api";
 import ChatViewPage from "@/features/chat/components/chat-view";
 
@@ -18,7 +19,11 @@ export default async function Chat({
 	params: Promise<{ category: string; chat: string }>;
 }) {
 	const { category, chat } = await params;
-	const chatData = await fetchChat(category, chat);
+	const { chat: chatData } = await fetchChat(category, chat);
+
+	if (!chatData) {
+		notFound();
+	}
 
 	return <ChatViewPage chat={chatData} />;
 }

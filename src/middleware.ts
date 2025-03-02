@@ -24,11 +24,15 @@ export default auth((req) => {
 		return undefined;
 	}
 
-	if (isLoggedIn && isAuthRoute) {
-		return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+	if (isAuthRoute) {
+		if (isLoggedIn) {
+			return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+		}
+
+		return undefined;
 	}
 
-	if (!isLoggedIn && isPublicRoute) {
+	if (!isLoggedIn && !isPublicRoute) {
 		return Response.redirect(new URL("/signin", nextUrl));
 	}
 

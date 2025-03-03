@@ -21,107 +21,124 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 			{
 				id: "76ab68a3-34e1-499e-8147-bb266739c6e8",
 				title: "Assets and Liabilities Breakdown",
-				created_at: generateRandomDate()
+				created_at: generateRandomDate(),
+				messages: [
+					{
+						id: "msg-76ab68a3-1",
+						role: "user",
+						data: [
+							{
+								type: "text",
+								content: "What are the main components of assets?"
+							}
+						]
+					},
+					{
+						id: "msg-76ab68a3-2",
+						role: "assistant",
+						data: [
+							{
+								type: "text",
+								content:
+									"### Main Components of Assets\n\n" +
+									"Assets are generally categorized into two main types: **current** and **non-current** assets.\n\n" +
+									"- **Current assets** include:\n  - Cash and cash equivalents\n  - Accounts receivable\n  - Inventory\n  - Short-term investments\n\n" +
+									"- **Non-current assets** include:\n  - Property, plant, and equipment (PP&E)\n  - Intangible assets (patents, trademarks)\n  - Long-term investments\n\n" +
+									"Understanding these categories helps businesses maintain liquidity and plan for long-term financial stability.\n\n" +
+									"*Sources: Corporate Finance Institute, Investopedia*"
+							}
+						]
+					}
+				]
 			},
 			{
-				id: "c5f33253-e98d-497f-8b64-cf7081b077cc",
-				title: "Equity and Retained Earnings",
-				created_at: generateRandomDate()
+				id: "dev-12345",
+				title: "Code Implementation",
+				created_at: generateRandomDate(),
+				messages: [
+					{
+						id: "msg-dev-1",
+						role: "user",
+						data: [
+							{
+								type: "text",
+								content:
+									"How can I fetch balance sheet data using an API in TypeScript?"
+							}
+						]
+					},
+					{
+						id: "msg-dev-2",
+						role: "assistant",
+						data: [
+							{
+								type: "text",
+								content:
+									"### Fetching Balance Sheet Data with TypeScript\n\n" +
+									"You can use **fetch** or **Axios** to retrieve balance sheet data from an API. Here’s an example using TypeScript and Axios:\n\n" +
+									"```ts\n" +
+									"import axios from 'axios';\n\n" +
+									"interface BalanceSheet {\n" +
+									"  assets: number;\n" +
+									"  liabilities: number;\n" +
+									"  equity: number;\n" +
+									"}\n\n" +
+									"async function fetchBalanceSheet(): Promise<BalanceSheet> {\n" +
+									"  const response = await axios.get<BalanceSheet>('https://api.example.com/balance-sheet');\n" +
+									"  return response.data;\n" +
+									"}\n\n" +
+									"fetchBalanceSheet().then(data => console.log(data)).catch(error => console.error(error));\n" +
+									"```\n\n" +
+									"This fetches the balance sheet data and logs it to the console. Ensure you replace the URL with your actual API endpoint.\n\n" +
+									"*Sources: MDN Web Docs, Axios Documentation*"
+							}
+						]
+					}
+				]
 			},
 			{
-				id: "82ffd2af-998a-408d-bb5d-d18679c3b026",
-				title: "Monthly Balance Sheet Report",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "a5d2e762-3bb1-4f89-9f85-08b8a4b5a8b7",
-				title: "Balance Sheet Ratio Analysis",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "9e3c10d5-ff76-4d95-bb3d-bb5a0f7efc58",
-				title: "Current vs. Non-Current Assets",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "6bfacbc2-3f62-486b-8f4b-57e1d5f8e123",
-				title: "Depreciation and Amortization Review",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "1ea3fc5e-b28d-4694-a7eb-b8295a5c3e1d",
-				title: "Balance Sheet Adjustments",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "e128a7bd-3c54-4b3e-8267-295ce2a647b5",
-				title: "Quarterly Financial Position",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "df4f2ef4-6e73-4a48-8b3c-b29f8ad77ef4",
-				title: "Comparative Balance Sheet Analysis",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "b43cd8d6-9a1d-4902-bd2a-12f6d22d5bb3",
-				title: "Impact of Leverage on Balance Sheet",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "c0e1a3b9-3c82-4c1f-88f1-179c846bb9c6",
-				title: "Goodwill and Intangible Assets",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "ea2d2f4a-15c2-4c95-9d35-4f546e75976f",
-				title: "Financial Health Indicators",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "c9ebd92f-32d4-4952-b82a-b35e9e567eb3",
-				title: "Deferred Tax Liabilities",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "83b7a7d9-4e4b-4e7a-a4f5-57336bdb647c",
-				title: "Liquidity Ratios and Analysis",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "f2a5e0e9-b3a3-4e79-b073-3d8b0cb09d6a",
-				title: "Net Worth Calculation",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "94c3c9a5-6421-4f49-bfc8-12b7fd08e8c5",
-				title: "Balance Sheet Trends Over Time",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "d3f89ad3-235a-4df0-9f99-1b35f68c4e5d",
-				title: "Fixed vs. Variable Liabilities",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "ae8a54e9-d5e6-49f1-8435-47cf324bc2e3",
-				title: "Accounting Policy Changes Impact",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "f4b1a649-df59-4b1d-8fbf-5a6c2f81e9c3",
-				title: "External Audit Findings",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "f98e5d49-2c44-4b1b-a3b4-2f92d1f9e7a3",
-				title: "Shareholder Equity Analysis",
-				created_at: generateRandomDate()
-			},
-			{
-				id: "b34a8f5e-2c9d-4bfb-a789-58e94d5dfc72",
-				title: "Working Capital Management",
-				created_at: generateRandomDate()
+				id: "dev-56789",
+				title: "JavaScript Implementation",
+				created_at: generateRandomDate(),
+				messages: [
+					{
+						id: "msg-dev-3",
+						role: "user",
+						data: [
+							{
+								type: "text",
+								content: "How can I calculate the current ratio in JavaScript?"
+							}
+						]
+					},
+					{
+						id: "msg-dev-4",
+						role: "assistant",
+						data: [
+							{
+								type: "text",
+								content:
+									"### Calculating Current Ratio in JavaScript\n\n" +
+									"The **current ratio** measures a company's liquidity. It is calculated as:\n\n" +
+									"```Current Ratio = Current Assets / Current Liabilities```\n\n" +
+									"Here’s how you can implement it in JavaScript:\n\n" +
+									"```js\n" +
+									"function calculateCurrentRatio(currentAssets, currentLiabilities) {\n" +
+									"  if (currentLiabilities === 0) {\n" +
+									"    throw new Error('Liabilities cannot be zero');\n" +
+									"  }\n" +
+									"  return currentAssets / currentLiabilities;\n" +
+									"}\n\n" +
+									"const currentAssets = 50000;\n" +
+									"const currentLiabilities = 20000;\n\n" +
+									"console.log('Current Ratio:', calculateCurrentRatio(currentAssets, currentLiabilities));\n" +
+									"```\n\n" +
+									"This function calculates the **current ratio** by dividing assets by liabilities.\n\n" +
+									"*Sources: Financial Times, Investopedia*"
+							}
+						]
+					}
+				]
 			}
 		]
 	},

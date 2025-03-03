@@ -1,7 +1,7 @@
 import { SUGGESTION_ITEMS } from "../constants";
 import ChatInput from "./chat-input";
+import ChatMessages from "./chat-messages";
 import ChatRecommandation from "./chat-recommandation";
-import { Card } from "@mijn-ui/react-card";
 import { ERPChat } from "@/types";
 
 type ChatViewPageProps = {
@@ -11,12 +11,10 @@ type ChatViewPageProps = {
 const ChatViewPage = ({ chat }: ChatViewPageProps) => {
 	return (
 		<>
-			<div className="flex items-center justify-center">
-				<div className="flex w-full max-w-screen-md items-center justify-end p-4">
-					{chat ? (
-						<Card className="w-fit rounded-3xl bg-default px-4 py-3 text-sm">
-							{chat.title}
-						</Card>
+			<div className="flex h-full items-center justify-center">
+				<div className="flex size-full max-w-screen-md items-center px-4 pb-40 pt-20">
+					{chat && chat.messages ? (
+						<ChatMessages messages={chat.messages} />
 					) : (
 						<div className="absolute inset-x-0 top-[calc(50%-52px)] flex -translate-y-1/2 flex-col items-center justify-center gap-6">
 							<ChatRecommandation suggestionItems={SUGGESTION_ITEMS} />
@@ -25,7 +23,7 @@ const ChatViewPage = ({ chat }: ChatViewPageProps) => {
 				</div>
 			</div>
 
-			<div className="absolute bottom-8 z-30 flex w-full items-center justify-center px-4">
+			<div className="absolute bottom-0 z-30 flex w-full items-center justify-center bg-card px-4 pb-8">
 				<ChatInput />
 			</div>
 		</>

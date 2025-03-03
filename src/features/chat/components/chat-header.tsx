@@ -12,8 +12,8 @@ const ChatHeader = ({ className, title }: ChatHeaderProps) => {
 	return (
 		<div
 			className={cn(
-				"sticky top-0 flex w-full items-center justify-between gap-2 bg-card/90 px-4 py-3 text-muted-foreground backdrop-blur",
-				"rounded-t-large",
+				"absolute top-0 flex w-full items-center justify-between gap-2 bg-card/90 px-4 py-3 text-muted-foreground backdrop-blur",
+				"z-30",
 				className
 			)}>
 			<div className="flex w-1/2 items-center gap-2">

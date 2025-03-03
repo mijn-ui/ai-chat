@@ -8,10 +8,22 @@ export type CATEGORY_ICON_TYPE =
 	| "mail"
 	| "code";
 
+export type ChatMessageDataType = {
+	type: "text" | "tool-invocation" | "source";
+	content: string;
+};
+
+export type ChatMessage = {
+	id: string;
+	role: "user" | "assistant";
+	data: ChatMessageDataType[];
+};
+
 export type ERPChat = {
 	id: string;
 	title: string;
 	created_at: string;
+	messages?: ChatMessage[];
 };
 
 export type ERPCategory = {

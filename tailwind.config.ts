@@ -1,5 +1,6 @@
 import animationPlugin from "tailwindcss-animate";
 import { mijnui } from "@mijn-ui/react-theme";
+import typographyPlugin from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -27,5 +28,5 @@ export default {
 			}
 		}
 	},
-	plugins: [animationPlugin, mijnui({})]
+	plugins: [animationPlugin, typographyPlugin, mijnui({})]
 };

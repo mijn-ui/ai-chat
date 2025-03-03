@@ -1,3 +1,6 @@
+///////////////////////////////////////////////////////////////////////////
+// 🛑 Nothing in here has anything to do with Nextjs, it's just a fake api
+///////////////////////////////////////////////////////////////////////////
 import { getPathSegment } from "./utils";
 import { fakeERPCategories } from "@/constants/fake-erp-categories";
 import { ERPCategory } from "@/types";

@@ -21,16 +21,13 @@ const ChatPanel = ({ category, className }: ChatPanelProps) => {
 	return (
 		<div
 			className={cn(
-				"relative flex size-full flex-col overflow-y-auto",
+				"relative flex size-full flex-col overflow-y-auto overflow-x-hidden",
 				className
 			)}>
 			<ChatPanelHeader
 				title={title}
 				newChatUrl={`/${category.url}`}
-				className={cn(
-					"sticky inset-x-0 top-0 bg-card/95",
-					"lg:rounded-l-large"
-				)}
+				className={cn("sticky inset-x-0 top-0 bg-card/95")}
 			/>
 
 			<div className="custom_scroll_bar flex w-full flex-col items-start gap-1 space-y-4 overflow-y-auto px-4">

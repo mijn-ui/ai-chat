@@ -29,7 +29,7 @@ const PageWrapper = ({
 			) : (
 				<div
 					className={cn(
-						"relative h-svh border bg-card lg:h-[calc(100svh-32px)] lg:rounded-large",
+						"relative h-svh overflow-hidden border bg-card lg:h-[calc(100svh-32px)] lg:rounded-large",
 						className
 					)}>
 					{children}

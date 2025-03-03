@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
+import { ScrollArea } from "@mijn-ui/react-scroll-area";
 import { fetchCategories, fetchCategory } from "@/lib/api";
 import { SidebarDialog, SidebarInset } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/layout/app-sidebar";
@@ -46,8 +46,8 @@ export default async function CategoryLayout({
 	children: React.ReactNode;
 }) {
 	const { category: categoryParams } = await params;
-	const cookieStore = await cookies();
-	const defaultPanelOpen = cookieStore.get("chatPanel:state")?.value === "true";
+	// const cookieStore = await cookies();
+	// const defaultPanelOpen = cookieStore.get("chatPanel:state")?.value === "true";
 
 	const { category } = await fetchCategory(categoryParams);
 
@@ -57,7 +57,7 @@ export default async function CategoryLayout({
 
 	return (
 		<ChatLayoutProvider
-			defaultPanelOpen={defaultPanelOpen}
+			// defaultPanelOpen={defaultPanelOpen}
 			className="relative flex h-full bg-background">
 			<AppSidebar className="hidden lg:block" />
 
@@ -82,7 +82,9 @@ export default async function CategoryLayout({
 						</SidebarDialog>
 
 						<ChatHeader title={category.title} />
-						{children}
+						<ScrollArea className="relative flex size-full flex-col items-center justify-center gap-2">
+							{children}
+						</ScrollArea>
 					</RenderOnScreen>
 				</PageWrapper>
 			</SidebarInset>

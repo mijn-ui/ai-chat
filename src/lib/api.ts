@@ -8,13 +8,13 @@ import { ERPCategory } from "@/types";
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function fetchCategories(): Promise<ERPCategory[]> {
-	await delay(250);
+	await delay(50);
 
 	return fakeERPCategories;
 }
 
 export async function fetchCategory(id: string) {
-	await delay(250);
+	await delay(50);
 
 	const category = fakeERPCategories.find(
 		(category) => category.id === id || getPathSegment(category.url) === id
@@ -39,7 +39,7 @@ export async function fetchCategory(id: string) {
 }
 
 export async function fetchChat(id: string, chatId: string) {
-	await delay(250);
+	await delay(50);
 
 	const category = fakeERPCategories.find(
 		(category) => category.id === id || getPathSegment(category.url) === id

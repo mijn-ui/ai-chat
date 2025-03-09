@@ -170,7 +170,7 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 			},
 			{
 				id: "dev-56789",
-				title: "JavaScript Implementation",
+				title: "Asset & Liability Trend Visualization",
 				created_at: generateRandomDate(),
 				messages: [
 					{
@@ -179,7 +179,8 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 						data: [
 							{
 								type: "text",
-								content: "How can I calculate the current ratio in JavaScript?"
+								content:
+									"Can you show me how our assets and liabilities have been trending over the past 6 months?"
 							}
 						]
 					},
@@ -190,23 +191,27 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 							{
 								type: "text",
 								content:
-									"### Calculating Current Ratio in JavaScript\n\n" +
-									"The **current ratio** measures a company's liquidity. It is calculated as:\n\n" +
-									"```Current Ratio = Current Assets / Current Liabilities```\n\n" +
-									"Here’s how you can implement it in JavaScript:\n\n" +
-									"```js\n" +
-									"function calculateCurrentRatio(currentAssets, currentLiabilities) {\n" +
-									"  if (currentLiabilities === 0) {\n" +
-									"    throw new Error('Liabilities cannot be zero');\n" +
-									"  }\n" +
-									"  return currentAssets / currentLiabilities;\n" +
-									"}\n\n" +
-									"const currentAssets = 50000;\n" +
-									"const currentLiabilities = 20000;\n\n" +
-									"console.log('Current Ratio:', calculateCurrentRatio(currentAssets, currentLiabilities));\n" +
-									"```\n\n" +
-									"This function calculates the **current ratio** by dividing assets by liabilities.\n\n" +
-									"*Sources: Financial Times, Investopedia*"
+									"### Your Assets and Liabilities Trend Analysis\n\nI've analyzed your company's financial data from the ERP system for the first half of this year. Here's what I found:\n\n- Your **total assets** have increased from $120,000 in January to $170,000 in June, representing a 42% growth\n- Your **total liabilities** have grown at a slower rate, from $65,000 to $82,000 (a 26% increase)\n- The **net asset position** has improved from $55,000 to $88,000, a 60% improvement\n\nThis indicates strengthening financial health over the period. Let me show you a visual representation of these trends:"
+							},
+							{
+								type: "tool-invocation",
+								toolName: "line-chart",
+								title: "Your Assets vs Liabilities Trend",
+								description: "6-month comparison from your ERP data",
+								xAxisDataKey: "month",
+								content: [
+									{ month: "Jan", assets: 120000, liabilities: 65000 },
+									{ month: "Feb", assets: 132000, liabilities: 70000 },
+									{ month: "Mar", assets: 145000, liabilities: 72000 },
+									{ month: "Apr", assets: 140000, liabilities: 75000 },
+									{ month: "May", assets: 152000, liabilities: 80000 },
+									{ month: "Jun", assets: 170000, liabilities: 82000 }
+								]
+							},
+							{
+								type: "text",
+								content:
+									"### Key Insights for Your Business\n\n- **Strong Overall Growth**: Your asset base is growing significantly faster than your liabilities, which strengthens your overall financial position\n- **April Dip**: There was a temporary reduction in assets in April, which might be related to your seasonal business cycle or a major asset purchase/sale\n- **Increasing Leverage Efficiency**: Your company is generating more assets per dollar of liability, improving your return on borrowed capital\n- **Future Projection**: If this trend continues, you're on track to have double your January asset position by year-end\n\nWould you like me to analyze any specific aspect of this trend in more detail, such as the breakdown of current vs. non-current assets or the composition of your liability growth?"
 							}
 						]
 					}

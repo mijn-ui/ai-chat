@@ -13,7 +13,7 @@ import {
 	SidebarMenu,
 	SidebarMenuButton
 } from "@/components/ui/sidebar";
-import { CATEGORY_ICON_TYPE, ERPChat } from "@/types";
+import { CategoryIconType, ERPChat } from "@/types";
 
 const AppSidebar = async ({ className }: { className?: string }) => {
 	const categories = await fetchCategories();
@@ -52,7 +52,7 @@ type SidebarMenuItemsProps = {
 	items: {
 		id: string;
 		title: string;
-		icon: CATEGORY_ICON_TYPE;
+		icon: CategoryIconType;
 		url: string;
 		chats?: ERPChat[];
 	}[];

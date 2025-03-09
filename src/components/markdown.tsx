@@ -48,7 +48,7 @@ const components: Partial<Components> = {
 	pre: ({ children }) => <pre className="my-4 w-full">{children}</pre>,
 	ol: ({ node, children, ...props }) => {
 		return (
-			<ol className="ml-4 list-outside list-decimal py-1.5" {...props}>
+			<ol className="ml-8 list-outside list-decimal py-1.5" {...props}>
 				{children}
 			</ol>
 		);
@@ -62,7 +62,7 @@ const components: Partial<Components> = {
 	},
 	ul: ({ node, children, ...props }) => {
 		return (
-			<ul className="ml-4 list-outside list-decimal" {...props}>
+			<ul className="ml-8 list-outside list-decimal" {...props}>
 				{children}
 			</ul>
 		);
@@ -85,6 +85,13 @@ const components: Partial<Components> = {
 				{...props}>
 				{children}
 			</Link>
+		);
+	},
+	p: ({ node, children, ...props }) => {
+		return (
+			<p className="my-1" {...props}>
+				{children}
+			</p>
 		);
 	},
 	h1: ({ node, children, ...props }) => {

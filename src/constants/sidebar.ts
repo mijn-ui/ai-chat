@@ -28,6 +28,6 @@ export const SIDEBAR_DEFAULT_ITEMS: SidebarDefualtItemsType[] = [
 		id: "sidebar-item-2",
 		icon: "code",
 		title: "Code",
-		url: "/code"
+		url: "#"
 	}
 ];

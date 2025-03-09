@@ -5,7 +5,8 @@ import {
 	isThisWeek,
 	isToday,
 	isYesterday,
-	parseISO
+	parseISO,
+	subDays
 } from "date-fns";
 import { faker } from "@faker-js/faker";
 import { ERPCategory, ERPChat } from "@/types";
@@ -16,7 +17,7 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 		title: "Balance Sheet Overview",
 		icon: "spread-sheet",
 		url: "balance-sheet-overview",
-		created_at: generateRandomDate(),
+		created_at: new Date().toISOString(),
 		chats: [
 			{
 				id: "76ab68a3-34e1-499e-8147-bb266739c6e8",
@@ -29,7 +30,8 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 						data: [
 							{
 								type: "text",
-								content: "What are the main components of assets?"
+								content:
+									"How do cash reserves and accounts receivable fluctuate throughout the fiscal year?"
 							}
 						]
 					},
@@ -40,12 +42,82 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 							{
 								type: "text",
 								content:
-									"### Main Components of Assets\n\n" +
-									"Assets are generally categorized into two main types: **current** and **non-current** assets.\n\n" +
-									"- **Current assets** include:\n  - Cash and cash equivalents\n  - Accounts receivable\n  - Inventory\n  - Short-term investments\n\n" +
-									"- **Non-current assets** include:\n  - Property, plant, and equipment (PP&E)\n  - Intangible assets (patents, trademarks)\n  - Long-term investments\n\n" +
-									"Understanding these categories helps businesses maintain liquidity and plan for long-term financial stability.\n\n" +
-									"*Sources: Corporate Finance Institute, Investopedia*"
+									"## Asset Value Trends Over the Year\n\nCash and accounts receivable fluctuate throughout the fiscal year due to various factors such as market demand, payment cycles, and economic conditions.\n\n- **Seasonal changes** can significantly impact cash flow and accounts receivable amounts\n- **Business cycles** affect payment collection and liquid asset availability\n- **Operational factors** like sales volume and payment terms influence both metrics\n\nBelow is a **chart representation** of cash and accounts receivable trends across all months."
+							},
+							{
+								type: "tool-invocation",
+								toolName: "bar-chart",
+								title: "Cash & Receivables Trends",
+								description:
+									"Monthly breakdown of cash and accounts receivable",
+								xAxisDataKey: "name",
+								content: [
+									{
+										name: "Jan",
+										cash: 1000,
+										receivables: 1100
+									},
+									{
+										name: "Feb",
+										cash: 1100,
+										receivables: 1200
+									},
+									{
+										name: "Mar",
+										cash: 1200,
+										receivables: 1300
+									},
+									{
+										name: "Apr",
+										cash: 1300,
+										receivables: 1400
+									},
+									{
+										name: "May",
+										cash: 1400,
+										receivables: 1500
+									},
+									{
+										name: "Jun",
+										cash: 1300,
+										receivables: 1400
+									},
+									{
+										name: "Jul",
+										cash: 1500,
+										receivables: 1600
+									},
+									{
+										name: "Aug",
+										cash: 1400,
+										receivables: 1500
+									},
+									{
+										name: "Sep",
+										cash: 1400,
+										receivables: 1500
+									},
+									{
+										name: "Oct",
+										cash: 1200,
+										receivables: 1300
+									},
+									{
+										name: "Nov",
+										cash: 1800,
+										receivables: 1900
+									},
+									{
+										name: "Dec",
+										cash: 1800,
+										receivables: 1950
+									}
+								]
+							},
+							{
+								type: "text",
+								content:
+									"#### Summary of Asset Trends\n\nFrom the **chart data**, we can observe several key patterns:\n\n- **Cash reserves** follow a variable pattern with:\n  - Steady growth from January to May\n  - A slight decrease in June\n  - Peak levels in November and December (50% higher than January)\n  - A notable dip in October\n\n- **Accounts receivable** demonstrate a consistent upward trend:\n  - Starting at $1,100 in January\n  - Ending at $1,950 in December (77% increase)\n  - Generally maintaining about $100-150 above cash values\n\n- **Correlation** between cash and receivables indicates effective collection practices, with both metrics peaking in the final quarter\n\nUnderstanding these patterns provides critical insights for **cash flow management** and **collection strategy optimization**."
 							}
 						]
 					}
@@ -147,7 +219,7 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 		title: "Income Statement Analysis",
 		icon: "trending-up",
 		url: "income-statement-analysis",
-		created_at: generateRandomDate(),
+		created_at: subDays(new Date(), 1).toISOString(),
 		chats: [
 			{
 				id: "baa1b611-f02e-4d89-9860-bb9ca2393598",
@@ -166,7 +238,7 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 		title: "Cash Flow Report",
 		url: "cash-flow-report",
 		icon: "exchange",
-		created_at: generateRandomDate(),
+		created_at: subDays(new Date(), 2).toISOString(),
 		chats: [
 			{
 				id: "8ea7103d-643d-44aa-aa2b-c1fac791e30f",
@@ -190,7 +262,7 @@ export const fakeERPCategories: ERPCategory[] = sortByDate([
 		title: "Accounts Payable Summary",
 		url: "accounts-payable-summary",
 		icon: "credit-card",
-		created_at: generateRandomDate(),
+		created_at: subDays(new Date(), 3).toISOString(),
 		chats: [
 			{
 				id: "13875619-c198-4066-8a2f-01e683bbd224",

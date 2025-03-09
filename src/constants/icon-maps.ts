@@ -9,9 +9,9 @@ import {
 	LuRefreshCw,
 	LuTrendingUp
 } from "react-icons/lu";
-import { CATEGORY_ICON_TYPE } from "@/types";
+import { CategoryIconType } from "@/types";
 
-export const IconMap: Record<CATEGORY_ICON_TYPE, IconType> = {
+export const IconMap: Record<CategoryIconType, IconType> = {
 	"spread-sheet": LuFileSpreadsheet,
 	"trending-up": LuTrendingUp,
 	exchange: LuRefreshCw,

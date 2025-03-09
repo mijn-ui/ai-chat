@@ -46,8 +46,6 @@ export default async function CategoryLayout({
 	children: React.ReactNode;
 }) {
 	const { category: categoryParams } = await params;
-	// const cookieStore = await cookies();
-	// const defaultPanelOpen = cookieStore.get("chatPanel:state")?.value === "true";
 
 	const { category } = await fetchCategory(categoryParams);
 

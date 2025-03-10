@@ -4,6 +4,14 @@ import ReactMarkdown, { type Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHeader,
+	TableHeaderCell,
+	TableRow
+} from "@mijn-ui/react-table";
 import { cn } from "@mijn-ui/react-theme";
 
 const components: Partial<Components> = {
@@ -26,7 +34,7 @@ const components: Partial<Components> = {
 				style={a11yDark}
 				PreTag={(props) => (
 					<div
-						className="custom_scroll_bar custom_scroll_bar_light max-w-[calc(100vw-72px)] md:max-w-none"
+						className="custom_scroll_bar custom_scroll_bar_light max-w-[calc(100vw-32px)] md:max-w-none"
 						{...props}
 					/>
 				)}
@@ -96,28 +104,28 @@ const components: Partial<Components> = {
 	},
 	h1: ({ node, children, ...props }) => {
 		return (
-			<h1 className="mb-2 mt-4 text-3xl font-semibold" {...props}>
+			<h1 className="mb-2 mt-4 text-2xl font-semibold sm:text-3xl" {...props}>
 				{children}
 			</h1>
 		);
 	},
 	h2: ({ node, children, ...props }) => {
 		return (
-			<h2 className="mb-2 mt-4 text-2xl font-semibold" {...props}>
+			<h2 className="mb-2 mt-4 text-xl font-semibold sm:text-2xl" {...props}>
 				{children}
 			</h2>
 		);
 	},
 	h3: ({ node, children, ...props }) => {
 		return (
-			<h3 className="mb-2 mt-4 text-xl font-semibold" {...props}>
+			<h3 className="mb-2 mt-4 text-lg font-semibold sm:text-xl" {...props}>
 				{children}
 			</h3>
 		);
 	},
 	h4: ({ node, children, ...props }) => {
 		return (
-			<h4 className="mb-2 mt-4 text-lg font-semibold" {...props}>
+			<h4 className="text-md mb-2 mt-4 font-semibold sm:text-lg" {...props}>
 				{children}
 			</h4>
 		);
@@ -135,6 +143,32 @@ const components: Partial<Components> = {
 				{children}
 			</h6>
 		);
+	},
+	table: ({ node, children, ...props }) => {
+		return (
+			<div className="my-8 max-w-[calc(100vw-32px)] overflow-x-auto rounded-xl border-small border-border md:max-w-none">
+				<Table {...props}>{children}</Table>
+			</div>
+		);
+	},
+	thead: ({ node, children, ...props }) => {
+		return (
+			<TableHeader className="bg-accent" {...props}>
+				{children}
+			</TableHeader>
+		);
+	},
+	th: ({ node, children, ...props }) => {
+		return <TableHeaderCell {...props}>{children}</TableHeaderCell>;
+	},
+	tbody: ({ node, children, ...props }) => {
+		return <TableBody {...props}>{children}</TableBody>;
+	},
+	tr: ({ node, children, ...props }) => {
+		return <TableRow {...props}>{children}</TableRow>;
+	},
+	td: ({ node, children, ...props }) => {
+		return <TableCell {...props}>{children}</TableCell>;
 	}
 };
 

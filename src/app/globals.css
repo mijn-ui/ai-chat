@@ -31,11 +31,11 @@
 	--mijnui-sidebar-border: 0 0% 85%;
 	--mijnui-sidebar-ring: 0 0% 100%;
 
-	--chart-1: 221.2 83.2% 53.3%;
-	--chart-2: 212 95% 68%;
-	--chart-3: 216 92% 60%;
-	--chart-4: 210 98% 78%;
-	--chart-5: 212 97% 87%;
+	--chart-1: 253 91% 58%;
+	--chart-2: 253 13% 74%;
+	--chart-3: 30 80% 55%;
+	--chart-4: 280 65% 60%;
+	--chart-5: 340 75% 55%;
 }
 
 .dark {
@@ -56,11 +56,11 @@
 	--mijnui-sidebar-border: 0 0% 15%;
 	--mijnui-sidebar-ring: 0 0% 0%;
 
-	--chart-1: 221.2 83.2% 53.3%;
-	--chart-2: 212 95% 68%;
-	--chart-3: 216 92% 60%;
-	--chart-4: 210 98% 78%;
-	--chart-5: 212 97% 87%;
+	--chart-1: 253 91% 58%;
+	--chart-2: 253 13% 74%;
+	--chart-3: 30 80% 55%;
+	--chart-4: 280 65% 60%;
+	--chart-5: 340 75% 55%;
 }
 
 .custom_scroll_bar {

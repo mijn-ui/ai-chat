@@ -4,8 +4,11 @@ import {
 	AreaChart,
 	Bar,
 	CartesianGrid,
+	LabelList,
 	Legend,
+	Pie,
 	BarChart as RechartBarChart,
+	PieChart as RechartPieChart,
 	ResponsiveContainer,
 	Tooltip,
 	XAxis,
@@ -18,19 +21,35 @@ import {
 	CardHeader,
 	CardTitle
 } from "@mijn-ui/react-card";
-import { BarChartConfig, ChartConfig, LineChartConfig } from "@/types";
+import {
+	BarChartConfig,
+	ChartConfig,
+	LineChartConfig,
+	PieChartConfig
+} from "@/types";
 
 const Chart = (props: ChartConfig) => {
-	if (props.toolName === "bar-chart") {
-		return <BarChart {...props} />;
-	} else if (props.toolName === "line-chart") {
-		return <LineChart {...props} />;
+	switch (props.toolName) {
+		case "bar-chart":
+			return <BarChart {...props} />;
+		case "line-chart":
+			return <LineChart {...props} />;
+		case "pie-chart":
+			return <PieChart {...props} />;
+		default:
+			return null;
 	}
-
-	return <div>Helo</div>;
 };
 
 export default Chart;
+
+/* -------------------------------------------------------------------------- */
+
+const getDataKeys = (content: Record<string, unknown>[], xAxisKey?: string) => {
+	const keys = [...new Set(content.flatMap(Object.keys))];
+
+	return xAxisKey ? keys.filter((key) => key !== xAxisKey) : keys;
+};
 
 const BarChart = ({
 	title,
@@ -38,10 +57,10 @@ const BarChart = ({
 	xAxisDataKey,
 	content
 }: BarChartConfig) => {
-	const dataKeys = [...new Set(content.flatMap(Object.keys))];
+	const dataKeys = getDataKeys(content, xAxisDataKey);
 
 	return (
-		<Card className="mb-2 mt-4 w-full border bg-transparent text-xs shadow-none">
+		<Card className="my-4 w-full border bg-transparent text-xs shadow-none">
 			<CardHeader>
 				<CardTitle className="text-medium">{title}</CardTitle>
 				<CardDescription className="text-small">{description}</CardDescription>
@@ -68,18 +87,16 @@ const BarChart = ({
 							content={<ChartTooltip indicator="square" active />}
 						/>
 
-						{dataKeys.map((key, index) => {
-							if (key === xAxisDataKey) return null;
-
-							return (
-								<Bar
-									key={index}
-									fill={`hsl(var(--chart-${index + 1}))`}
-									radius={[4, 4, 0, 0]}
-									dataKey={key}
-								/>
-							);
-						})}
+						{dataKeys.map((key, index) => (
+							<Bar
+								key={key}
+								// These colors should come from the api
+								// and passed them accordingly
+								fill={`hsl(var(--chart-${index + 1}))`}
+								radius={[4, 4, 0, 0]}
+								dataKey={key}
+							/>
+						))}
 
 						<Legend
 							verticalAlign="top"
@@ -100,7 +117,7 @@ const LineChart = ({
 	xAxisDataKey,
 	content
 }: LineChartConfig) => {
-	const dataKeys = [...new Set(content.flatMap(Object.keys))];
+	const dataKeys = getDataKeys(content, xAxisDataKey);
 
 	return (
 		<Card className="mb-2 mt-4 w-full border bg-transparent text-xs shadow-none">
@@ -137,25 +154,61 @@ const LineChart = ({
 							strokeDasharray={3}
 						/>
 
-						{dataKeys.map((key, index) => {
-							if (key === xAxisDataKey) return null;
-
-							return (
-								<Area
-									key={index}
-									fill={`hsl(var(--chart-${index + 1}))`}
-									stroke={`hsl(var(--chart-${index + 1}))`}
-									fillOpacity={0.1}
-									dataKey={key}
-									activeDot={{
-										color: `hsl(var(--chart-${index + 1}))`,
-										r: 3,
-										stroke: `hsl(var(--chart-${index + 1}))`
-									}}
-								/>
-							);
-						})}
+						{dataKeys.map((key, index) => (
+							<Area
+								key={key}
+								// These colors should come from the api
+								// and passed them accordingly
+								fill={`hsl(var(--chart-${index + 1}))`}
+								stroke={`hsl(var(--chart-${index + 1}))`}
+								fillOpacity={0.1}
+								dataKey={key}
+								activeDot={{
+									color: `hsl(var(--chart-${index + 1}))`,
+									r: 3,
+									stroke: `hsl(var(--chart-${index + 1}))`
+								}}
+							/>
+						))}
 					</AreaChart>
+				</ResponsiveContainer>
+			</CardContent>
+		</Card>
+	);
+};
+
+const PieChart = ({ title, description, content }: PieChartConfig) => {
+	const dataKeys = getDataKeys(content);
+
+	return (
+		<Card className="mb-2 mt-4 w-full border bg-transparent text-xs shadow-none">
+			<CardHeader>
+				<CardTitle className="text-medium">{title}</CardTitle>
+				<CardDescription className="text-small">{description}</CardDescription>
+			</CardHeader>
+
+			<CardContent className="aspect-video w-full">
+				<ResponsiveContainer width="100%" height="100%">
+					<RechartPieChart>
+						<Tooltip
+							cursor={{ fill: "hsl(var(--mijnui-accent))" }}
+							content={<ChartTooltip hideIndicator active />}
+						/>
+						{dataKeys.map((key) => (
+							<Pie
+								key={key}
+								data={content}
+								dataKey={key}
+								stroke="fill-background">
+								<LabelList
+									dataKey={key}
+									className="fill-card"
+									stroke="none"
+									fontSize={12}
+								/>
+							</Pie>
+						))}
+					</RechartPieChart>
 				</ResponsiveContainer>
 			</CardContent>
 		</Card>

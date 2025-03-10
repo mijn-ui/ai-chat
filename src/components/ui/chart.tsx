@@ -12,7 +12,7 @@ export const tooltipStyles = tv({
 		label: "block font-medium",
 		separator: "my-1.5 h-divider bg-border",
 		content: "space-y-1",
-		entry: "flex items-center justify-between gap-8",
+		entry: "flex items-center justify-between gap-4",
 		entryValue: "",
 		entryNameContainer: "flex items-center gap-3",
 		entryName: "text-muted-foreground",

@@ -94,7 +94,6 @@ const ChatInput = ({ className, ...props }: TextareaProps) => {
 					className
 				)}
 				rows={2}
-				autoFocus
 				placeholder="Sent A Message"
 				onKeyDown={(event) => {
 					if (event.key === "Enter" && !event.shiftKey) {

@@ -226,7 +226,7 @@ const SidebarDialog = ({
 			<DialogContent
 				unstyled
 				className={cn(
-					"fixed inset-y-0 left-0 z-50 flex w-72 border-r bg-card transition duration-500 ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left",
+					"fixed inset-y-0 left-0 z-50 flex w-72 border-r bg-card transition duration-500 ease-in-out lg:data-[state=closed]:duration-300 lg:data-[state=open]:duration-500 lg:data-[state=open]:animate-in lg:data-[state=closed]:animate-out lg:data-[state=closed]:slide-out-to-left lg:data-[state=open]:slide-in-from-left",
 					className
 				)}
 				{...props}>

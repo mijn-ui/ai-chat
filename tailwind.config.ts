@@ -28,5 +28,37 @@ export default {
 			}
 		}
 	},
-	plugins: [animationPlugin, typographyPlugin, mijnui({})]
+	plugins: [
+		animationPlugin,
+		typographyPlugin,
+		mijnui({
+			themes: {
+				light: {
+					colors: {
+						primary: "217.2 91.2% 59.8%",
+						default: "214.3 31.8% 91.4%",
+						secondary: {
+							DEFAULT: "0 0% 0%",
+							foreground: "0 0% 100%"
+						},
+						border: "0 0% 84%",
+						input: "0 0% 84%"
+					}
+				},
+				dark: {
+					colors: {
+						background: "0 0% 4%",
+						primary: "217.2 91.2% 59.8%",
+						default: "240 3.7% 15.9%",
+						secondary: {
+							DEFAULT: "0 0% 100%",
+							foreground: "0 0% 0%"
+						},
+						border: "0 0% 15%",
+						input: "0 0% 15%"
+					}
+				}
+			}
+		})
+	]
 };
